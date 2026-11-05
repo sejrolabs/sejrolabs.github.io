@@ -67,6 +67,9 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Internationalization Dictionary (Preloaded in Head) -->
+  <script src="translations.js"></script>
 </head>
 <body class="bg-dark-bg text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen relative overflow-x-hidden">
 
@@ -91,48 +94,63 @@
         </div>
         <div>
           <span class="font-bold text-slate-100 text-lg tracking-tight group-hover:text-brand-400 transition-colors">Toussaint BOCO</span>
-          <span class="block text-xs font-mono text-slate-400">Elève Ingénieur Data Scientist - ENSAI</span>
+          <span class="block text-xs font-mono text-slate-400" data-i18n="nav_role">Élève Ingénieur Data Scientist - ENSAI</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Menu -->
       <nav class="hidden md:flex items-center gap-1 bg-dark-card/60 p-1.5 rounded-full border border-dark-border/80">
-        <a href="#projets" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all">Projets</a>
-        <a href="#competences" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all">Compétences</a>
-        <a href="#parcours" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all">Parcours</a>
-        <a href="#apropos" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all">À propos</a>
-        <a href="#contact" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all">Contact</a>
+        <a href="#projets" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all" data-i18n="nav_projects">Projets</a>
+        <a href="#competences" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all" data-i18n="nav_skills">Compétences</a>
+        <a href="#parcours" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all" data-i18n="nav_timeline">Parcours</a>
+        <a href="#apropos" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all" data-i18n="nav_about">À propos</a>
+        <a href="#contact" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 rounded-full transition-all" data-i18n="nav_contact">Contact</a>
       </nav>
 
-      <!-- CTA Action Buttons -->
+      <!-- CTA Action Buttons & Language Switcher -->
       <div class="hidden sm:flex items-center gap-3">
+        
+        <!-- Language Switcher Pill (FR / EN) -->
+        <div class="flex items-center bg-dark-card border border-dark-borderLight rounded-full p-1 text-xs font-mono shadow-inner">
+          <button id="langBtnFR" onclick="switchLanguage('fr')" class="px-2.5 py-1 rounded-full font-bold transition-all text-white bg-brand-600 shadow-sm" aria-label="Passer en Français">FR</button>
+          <button id="langBtnEN" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded-full font-bold transition-all text-slate-400 hover:text-white" aria-label="Switch to English">EN</button>
+        </div>
+
         <!-- Availability Badge -->
         <div class="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-accent-emerald/10 border border-accent-emerald/30 text-accent-emerald text-xs font-medium">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-emerald opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-emerald"></span>
           </span>
-          Stage 6 mois - Janvier 2027
+          <span data-i18n="nav_availability">Stage 6 mois - Janvier 2027</span>
         </div>
 
         <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white bg-slate-800 hover:bg-slate-700 border border-dark-borderLight transition-all">
           <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
-          Mon CV (PDF)
+          <span data-i18n="nav_cv">Mon CV (PDF)</span>
         </a>
 
         <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-accent-cyan hover:from-brand-500 hover:to-accent-cyan shadow-md shadow-brand-600/25 hover:shadow-brand-500/40 transition-all">
-          Contacts
+          <span data-i18n="nav_hire">Contacts</span>
         </a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Ouvrir le menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path id="hamburgerIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+      <div class="md:hidden flex items-center gap-2">
+        <!-- Quick Language Switcher for mobile top bar -->
+        <div class="flex items-center bg-dark-card border border-dark-borderLight rounded-full p-0.5 text-xs font-mono">
+          <button id="mobileTopLangFR" onclick="switchLanguage('fr')" class="px-2 py-0.5 rounded-full font-bold text-white bg-brand-600">FR</button>
+          <button id="mobileTopLangEN" onclick="switchLanguage('en')" class="px-2 py-0.5 rounded-full font-bold text-slate-400">EN</button>
+        </div>
+
+        <button id="mobileMenuBtn" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Ouvrir le menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="hamburgerIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
 
     </div>
 
@@ -140,16 +158,26 @@
     <div id="mobileMenu" class="md:hidden hidden bg-dark-card/95 border-b border-dark-border px-6 py-5 space-y-3 backdrop-blur-xl">
       <div class="flex items-center gap-2 pb-3 mb-2 border-b border-dark-border text-xs font-medium text-accent-emerald">
         <span class="inline-flex rounded-full h-2 w-2 bg-accent-emerald animate-pulse"></span>
-        À la recherche d'un stage de fin d'études (Janvier 2027)
+        <span data-i18n="nav_mobile_searching">À la recherche d'un stage de fin d'études (Janvier 2027)</span>
       </div>
-      <a href="#projets" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link">Projets Phares</a>
-      <a href="#competences" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link">Compétences Techniques</a>
-      <a href="#parcours" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link">Parcours & Formations</a>
-      <a href="#apropos" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link">À propos</a>
-      <a href="#contact" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link">Contact</a>
+
+      <!-- Language Selector inside mobile menu -->
+      <div class="flex items-center justify-between py-2 border-b border-dark-border">
+        <span class="text-xs text-slate-400 font-mono" data-i18n="lang_label">Langue :</span>
+        <div class="flex items-center bg-dark-bg border border-dark-borderLight rounded-full p-0.5 text-xs font-mono">
+          <button id="mobileLangFR" onclick="switchLanguage('fr')" class="px-3 py-1 rounded-full font-bold transition-all text-white bg-brand-600 shadow-sm">FR</button>
+          <button id="mobileLangEN" onclick="switchLanguage('en')" class="px-3 py-1 rounded-full font-bold transition-all text-slate-400 hover:text-white">EN</button>
+        </div>
+      </div>
+
+      <a href="#projets" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link" data-i18n="nav_projects">Projets</a>
+      <a href="#competences" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link" data-i18n="nav_skills">Compétences Techniques</a>
+      <a href="#parcours" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link" data-i18n="nav_timeline">Parcours & Formations</a>
+      <a href="#apropos" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link" data-i18n="nav_about">À propos</a>
+      <a href="#contact" class="block py-2 text-slate-300 hover:text-brand-400 font-medium mobile-nav-link" data-i18n="nav_contact">Contact</a>
       <div class="pt-4 flex flex-col gap-2">
-        <a href="cv.pdf" target="_blank" class="w-full text-center py-2.5 rounded-lg text-sm font-medium bg-slate-800 text-slate-200 border border-dark-borderLight">Télécharger mon CV (PDF)</a>
-        <a href="#contact" class="w-full text-center py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white">Prendre contact</a>
+        <a href="cv.pdf" target="_blank" class="w-full text-center py-2.5 rounded-lg text-sm font-medium bg-slate-800 text-slate-200 border border-dark-borderLight" data-i18n="nav_mobile_cv">Télécharger mon CV (PDF)</a>
+        <a href="#contact" class="w-full text-center py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white" data-i18n="nav_mobile_contact">Prendre contact</a>
       </div>
     </div>
   </header>
@@ -167,29 +195,29 @@
           <!-- Availability Pill -->
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs sm:text-sm text-slate-300 shadow-inner">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>Élève Ingénieur en dernière année à l'<strong>ENSAI</strong></span>
+            <span><span data-i18n="hero_pill_school">Élève Ingénieur en dernière année à l'</span><strong>ENSAI</strong></span>
             <span class="text-slate-500">|</span>
-            <span class="text-brand-400 font-mono">Stage 6 mois - Janvier 2027</span>
+            <span class="text-brand-400 font-mono" data-i18n="hero_pill_stage">Stage 6 mois - Janvier 2027</span>
           </div>
 
           <!-- Main Hero Title -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]" data-i18n-html="hero_title_html">
             Transformer des données complexes en <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-accent-cyan to-accent-teal">décisions d'impact</span>.
           </h1>
 
           <!-- Role subtitle -->
-          <p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0" data-i18n-html="hero_subtitle_html">
             Je suis <strong class="text-white font-semibold">Toussaint BOCO</strong>, Data Scientist avec une double expertise en <strong class="text-brand-400 font-semibold">Machine Learning</strong>, <strong class="text-accent-cyan font-semibold">Statistique Appliquée</strong> et <strong class="text-accent-violet font-semibold">Économétrie</strong>.
           </p>
 
           <!-- Core Value Proposition -->
-          <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0" data-i18n-html="hero_desc_html">
             De la détection d'anomalies sur classes déséquilibrées à la prévision dynamique sur +1 million de réservations, en passant par le NLP et les systèmes de recommandation : j'allie rigueur mathématique, optimisation d'algorithmes et explicabilité métier (<span class="font-mono text-slate-300 text-xs bg-slate-800 px-2 py-0.5 rounded">SHAP</span>, analyse des résidus).
           </p>
 
           <!-- CTAs & Social Links -->
           <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            <a href="#projets" class="px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-brand-600 via-brand-500 to-accent-cyan hover:from-brand-500 hover:to-accent-cyan shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 transition-all">
+            <a href="#projets" class="px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-brand-600 via-brand-500 to-accent-cyan hover:from-brand-500 hover:to-accent-cyan shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 transition-all" data-i18n="hero_cta_projects">
               Explorer mes projets phares
             </a>
 
@@ -223,7 +251,7 @@
               <!-- Photo Container with Dézoom-friendly Framing -->
               <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/60 flex items-center justify-center">
                 
-                <!-- Profile Image (Dézoomée avec scale-[0.94] et centrage équilibré) -->
+                <!-- Profile Image -->
                 <img 
                   id="profilePhoto" 
                   src="photo.jpg" 
@@ -232,7 +260,7 @@
                   onerror="handlePhotoError(this)"
                 />
 
-                <!-- Fallback Monogram Avatar if photo.jpeg is not yet added -->
+                <!-- Fallback Monogram Avatar if photo is not yet added -->
                 <div id="photoPlaceholder" class="hidden absolute inset-0 flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-slate-900 via-dark-card to-dark-bg">
                   <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-brand-600 via-accent-cyan to-accent-violet p-1 mb-4 shadow-xl shadow-brand-500/20">
                     <div class="w-full h-full rounded-full bg-dark-bg flex items-center justify-center">
@@ -240,26 +268,26 @@
                     </div>
                   </div>
                   <span class="text-base font-bold text-white tracking-tight">Toussaint BOCO</span>
-                  <span class="text-xs text-brand-400 font-mono mt-0.5">Elève Ingénieur Data Scientist - ENSAI</span>
+                  <span class="text-xs text-brand-400 font-mono mt-0.5" data-i18n="portrait_badge_school">Élève Ingénieur Data Scientist - ENSAI</span>
                   
                   <div class="mt-4 px-3.5 py-2 rounded-xl bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 max-w-xs shadow-inner">
-                    <p class="text-[11px] text-slate-400">Pour afficher votre photo :</p>
-                    <p class="font-mono text-accent-cyan font-semibold text-xs mt-0.5">Déposez votre fichier <span class="underline">photo.jpeg</span> dans le dossier</p>
+                    <p class="text-[11px] text-slate-400" data-i18n="portrait_placeholder_hint">Pour afficher votre photo :</p>
+                    <p class="font-mono text-accent-cyan font-semibold text-xs mt-0.5" data-i18n-html="portrait_placeholder_action">Déposez votre fichier <span class="underline">photo.jpeg</span> dans le dossier</p>
                   </div>
                 </div>
 
-                <!-- Vignette Gradient Overlay at Bottom of Photo (Plus doux pour libérer le buste) -->
+                <!-- Vignette Gradient Overlay at Bottom of Photo -->
                 <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-dark-bg/90 via-dark-bg/40 to-transparent pointer-events-none"></div>
 
                 <!-- Identity Overlay on bottom of photo -->
                 <div class="absolute bottom-3 left-3 right-3 text-left pointer-events-none">
                   <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-dark-bg/85 backdrop-blur-md border border-slate-700/80 text-[10px] font-mono text-accent-emerald mb-1 shadow-sm">
                     <span class="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-ping"></span>
-                    Disponibilité : Janvier 2027
+                    <span data-i18n="portrait_status">Disponibilité : Janvier 2027</span>
                   </span>
                   <h3 class="text-lg font-bold text-white tracking-tight drop-shadow-md leading-tight">Toussaint BOCO</h3>
                   <p class="text-[11px] text-slate-300 drop-shadow flex items-center gap-1.5">
-                    <span>Data Scientist & ML Engineer</span>
+                    <span data-i18n="portrait_title">Data Scientist & ML Engineer</span>
                     <span class="text-slate-500"> - </span>
                     <span class="text-brand-400 font-mono">ENSAI</span>
                   </p>
@@ -273,8 +301,8 @@
                   🎓
                 </div>
                 <div>
-                  <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-mono">Formation</span>
-                  <span class="block text-xs font-bold text-white">ENSAI + ENEAM</span>
+                  <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-mono" data-i18n="portrait_tag_formation">Formation</span>
+                  <span class="block text-xs font-bold text-white" data-i18n="portrait_val_formation">ENSAI + ENEAM</span>
                 </div>
               </div>
 
@@ -282,6 +310,10 @@
               <div class="absolute -bottom-3 -left-3 sm:-left-4 bg-dark-card/95 backdrop-blur-md border border-dark-borderLight rounded-xl px-3.5 py-2 shadow-2xl flex items-center gap-2.5 animate-float" style="animation-delay: 2.5s;">
                 <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-xs font-mono">
                   ✓
+                </div>
+                <div>
+                  <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-mono" data-i18n="portrait_tag_metric">Détection Fraude</span>
+                  <span class="block text-xs font-bold text-emerald-400 font-mono" data-i18n="portrait_val_metric">87.2% Précision</span>
                 </div>
               </div>
 
@@ -300,8 +332,8 @@
           <div class="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-accent-cyan group-hover:scale-105 transition-transform">
             87.2%
           </div>
-          <div class="text-xs sm:text-sm font-semibold text-white mt-1">Précision Détection Fraude</div>
-          <div class="text-xs text-slate-400 font-mono mt-0.5">Rappel : 83.7% sur 285k transactions</div>
+          <div class="text-xs sm:text-sm font-semibold text-white mt-1" data-i18n="metric_fraud_title">Précision Détection Fraude</div>
+          <div class="text-xs text-slate-400 font-mono mt-0.5" data-i18n="metric_fraud_sub">Rappel : 83.7% sur 285k transactions</div>
         </div>
 
         <!-- Metric 2 -->
@@ -309,17 +341,17 @@
           <div class="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-emerald group-hover:scale-105 transition-transform">
             +1 000 000
           </div>
-          <div class="text-xs sm:text-sm font-semibold text-white mt-1">Lignes Données Traitées</div>
-          <div class="text-xs text-slate-400 font-mono mt-0.5">104 résidences Odalys Vacances</div>
+          <div class="text-xs sm:text-sm font-semibold text-white mt-1" data-i18n="metric_data_title">Lignes Données Traitées</div>
+          <div class="text-xs text-slate-400 font-mono mt-0.5" data-i18n="metric_data_sub">104 résidences Odalys Vacances</div>
         </div>
 
         <!-- Metric 3 -->
         <div class="bg-dark-card/60 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-dark-border hover:border-accent-violet/40 transition-all text-center group">
-          <div class="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent-violet to-brand-400 group-hover:scale-105 transition-transform">
+          <div class="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent-violet to-brand-400 group-hover:scale-105 transition-transform" data-i18n="metric_degree_val">
             Double
           </div>
-          <div class="text-xs sm:text-sm font-semibold text-white mt-1">Diplôme Ingénieur</div>
-          <div class="text-xs text-slate-400 font-mono mt-0.5">ENSAI + ENEAM (Statistique & Data Science)</div>
+          <div class="text-xs sm:text-sm font-semibold text-white mt-1" data-i18n="metric_degree_title">Diplôme Ingénieur</div>
+          <div class="text-xs text-slate-400 font-mono mt-0.5" data-i18n="metric_degree_sub">ENSAI + ENEAM (Statistique & Data Science)</div>
         </div>
 
         <!-- Metric 4 -->
@@ -327,8 +359,8 @@
           <div class="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-emerald group-hover:scale-105 transition-transform">
             ML & SHAP
           </div>
-          <div class="text-xs sm:text-sm font-semibold text-white mt-1">Explicabilité des Modèles</div>
-          <div class="text-xs text-slate-400 font-mono mt-0.5">Zéro "Boîte Noire" pour le métier</div>
+          <div class="text-xs sm:text-sm font-semibold text-white mt-1" data-i18n="metric_xai_title">Explicabilité des Modèles</div>
+          <div class="text-xs text-slate-400 font-mono mt-0.5" data-i18n="metric_xai_sub">Zéro "Boîte Noire" pour le métier</div>
         </div>
 
       </div>
@@ -339,13 +371,13 @@
       
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono uppercase tracking-wider">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono uppercase tracking-wider" data-i18n="projects_badge">
           Showcase Technique
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="projects_title">
           Mes 4 Projets Phares
         </h2>
-        <p class="text-slate-400 text-base sm:text-lg">
+        <p class="text-slate-400 text-base sm:text-lg" data-i18n="projects_desc">
           Chaque projet répond à un défi data spécifique : modélisation de masse, déséquilibre extrême, traitement du texte et recommandation personnalisée.
         </p>
       </div>
@@ -358,37 +390,37 @@
           <div class="space-y-5">
             <!-- Header Tags & Metric Badge -->
             <div class="flex items-start justify-between gap-4">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20" data-i18n="p1_tag">
                 Séries Temporelles & Revenue Management
               </span>
-              <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-emerald-400 font-semibold border border-slate-700">
+              <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-emerald-400 font-semibold border border-slate-700" data-i18n="p1_metric_pill">
                 +1 000 000 lignes
               </span>
             </div>
 
             <!-- Title -->
-            <h3 class="text-2xl font-bold text-white group-hover:text-brand-400 transition-colors">
+            <h3 class="text-2xl font-bold text-white group-hover:text-brand-400 transition-colors" data-i18n="p1_title">
               Prévision de la Demande & Revenue Management (Odalys)
             </h3>
 
             <!-- Business context & Pitch -->
-            <p class="text-slate-300 text-sm leading-relaxed">
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n-html="p1_desc_html">
               Modélisation prédictive des réservations et du <em>remaining pickup</em> pour <strong>104 résidences de vacances</strong>. Conception d'une double approche statique et dynamique par <strong>XGBoost</strong> avec validation temporelle <em>walk-forward</em> et analyse des facteurs clés via <strong>SHAP</strong>.
             </p>
 
             <!-- Key Metric Highlights -->
             <div class="grid grid-cols-3 gap-3 pt-2">
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Périmètre</span>
-                <span class="font-mono text-sm font-bold text-white">104 Résidences</span>
+                <span class="block text-xs text-slate-400" data-i18n="p1_stat1_k">Périmètre</span>
+                <span class="font-mono text-sm font-bold text-white" data-i18n="p1_stat1_v">104 Résidences</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Algorithme</span>
-                <span class="font-mono text-sm font-bold text-brand-400">XGBoost D/S</span>
+                <span class="block text-xs text-slate-400" data-i18n="p1_stat2_k">Algorithme</span>
+                <span class="font-mono text-sm font-bold text-brand-400" data-i18n="p1_stat2_v">XGBoost D/S</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Explicabilité</span>
-                <span class="font-mono text-sm font-bold text-accent-teal">SHAP Values</span>
+                <span class="block text-xs text-slate-400" data-i18n="p1_stat3_k">Explicabilité</span>
+                <span class="font-mono text-sm font-bold text-accent-teal" data-i18n="p1_stat3_v">SHAP Values</span>
               </div>
             </div>
 
@@ -405,12 +437,12 @@
           <!-- Bottom Actions -->
           <div class="pt-6 mt-6 border-t border-dark-border flex items-center justify-between">
             <button onclick="openModal('modal-odalys')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-300 group-hover:translate-x-1 transition-all">
-              <span>Étude de cas détaillée</span>
+              <span data-i18n="btn_case_study">Étude de cas détaillée</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
             <a href="https://github.com/sejrolabs/PFE-ENSAI-x-Magora-x-Odalys-Vacances" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-dark-borderLight transition-all">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span>Code Source</span>
+              <span data-i18n="btn_source_code">Code Source</span>
             </a>
           </div>
         </article>
@@ -420,37 +452,37 @@
           <div class="space-y-5">
             <!-- Header Tags & Metric Badge -->
             <div class="flex items-start justify-between gap-4">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20" data-i18n="p2_tag">
                 Détection d'Anomalies & Classes Déséquilibrées
               </span>
-              <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-rose-400 font-semibold border border-slate-700">
+              <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-rose-400 font-semibold border border-slate-700" data-i18n="p2_metric_pill">
                 0,17% de fraudes
               </span>
             </div>
 
             <!-- Title -->
-            <h3 class="text-2xl font-bold text-white group-hover:text-accent-cyan transition-colors">
+            <h3 class="text-2xl font-bold text-white group-hover:text-accent-cyan transition-colors" data-i18n="p2_title">
               Détection de Fraude Bancaire par Machine Learning
             </h3>
 
             <!-- Business context & Pitch -->
-            <p class="text-slate-300 text-sm leading-relaxed">
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n-html="p2_desc_html">
               Détection temps-réel de fraudes sur <strong>285 807 transactions</strong>. Traitement du déséquilibre sévère via <em>cost-sensitive learning</em>, comparaison Random Forest vs XGBoost, calibration du seuil de décision sur la courbe <strong>Precision-Recall (PR-AUC)</strong>.
             </p>
 
             <!-- Key Metric Highlights -->
             <div class="grid grid-cols-3 gap-3 pt-2">
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Précision</span>
-                <span class="font-mono text-sm font-bold text-accent-cyan">87,2%</span>
+                <span class="block text-xs text-slate-400" data-i18n="p2_stat1_k">Précision</span>
+                <span class="font-mono text-sm font-bold text-accent-cyan" data-i18n="p2_stat1_v">87,2%</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Rappel (Recall)</span>
-                <span class="font-mono text-sm font-bold text-emerald-400">83,7%</span>
+                <span class="block text-xs text-slate-400" data-i18n="p2_stat2_k">Rappel (Recall)</span>
+                <span class="font-mono text-sm font-bold text-emerald-400" data-i18n="p2_stat2_v">83,7%</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Transactions</span>
-                <span class="font-mono text-sm font-bold text-white">285k</span>
+                <span class="block text-xs text-slate-400" data-i18n="p2_stat3_k">Transactions</span>
+                <span class="font-mono text-sm font-bold text-white" data-i18n="p2_stat3_v">285k</span>
               </div>
             </div>
 
@@ -467,12 +499,12 @@
           <!-- Bottom Actions -->
           <div class="pt-6 mt-6 border-t border-dark-border flex items-center justify-between">
             <button onclick="openModal('modal-fraude')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-cyan hover:text-cyan-300 group-hover:translate-x-1 transition-all">
-              <span>Étude de cas détaillée</span>
+              <span data-i18n="btn_case_study">Étude de cas détaillée</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
-            <a href="https://github.com/sejrolabs/fraud-detection-ml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-dark-borderLight transition-all">
+            <a href="https://github.com/sejrolabs/credit-card-fraud-detection" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-dark-borderLight transition-all">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span>Code Source</span>
+              <span data-i18n="btn_source_code">Code Source</span>
             </a>
           </div>
         </article>
@@ -482,37 +514,37 @@
           <div class="space-y-5">
             <!-- Header Tags & Metric Badge -->
             <div class="flex items-start justify-between gap-4">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20" data-i18n="p3_tag">
                 Natural Language Processing (NLP)
               </span>
-              <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-violet-300 font-semibold border border-slate-700">
+              <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-violet-300 font-semibold border border-slate-700" data-i18n="p3_metric_pill">
                 Transformers & BERT
               </span>
             </div>
 
             <!-- Title -->
-            <h3 class="text-2xl font-bold text-white group-hover:text-accent-violet transition-colors">
+            <h3 class="text-2xl font-bold text-white group-hover:text-accent-violet transition-colors" data-i18n="p3_title">
               Analyse de Sentiments & Text Mining (NLP)
             </h3>
 
             <!-- Business context & Pitch -->
-            <p class="text-slate-300 text-sm leading-relaxed">
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n-html="p3_desc_html">
               Pipeline complet de classification de texte et d'analyse d'opinions. Comparaison de baselines sémantiques (TF-IDF + classifieurs linéaires) avec le fine-tuning de modèles de langage <strong>BERT / RoBERTa</strong> pour la détection fine des tonalités et de la satisfaction client.
             </p>
 
             <!-- Key Metric Highlights -->
             <div class="grid grid-cols-3 gap-3 pt-2">
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">F1-Score</span>
-                <span class="font-mono text-sm font-bold text-accent-violet">91,4%</span>
+                <span class="block text-xs text-slate-400" data-i18n="p3_stat1_k">F1-Score</span>
+                <span class="font-mono text-sm font-bold text-accent-violet" data-i18n="p3_stat1_v">91,4%</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Architecture</span>
-                <span class="font-mono text-sm font-bold text-white">Fine-tuned BERT</span>
+                <span class="block text-xs text-slate-400" data-i18n="p3_stat2_k">Architecture</span>
+                <span class="font-mono text-sm font-bold text-white" data-i18n="p3_stat2_v">Fine-tuned BERT</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Latence</span>
-                <span class="font-mono text-sm font-bold text-emerald-400">&lt; 35ms / req</span>
+                <span class="block text-xs text-slate-400" data-i18n="p3_stat3_k">Latence</span>
+                <span class="font-mono text-sm font-bold text-emerald-400" data-i18n="p3_stat3_v">&lt; 35ms / req</span>
               </div>
             </div>
 
@@ -529,12 +561,12 @@
           <!-- Bottom Actions -->
           <div class="pt-6 mt-6 border-t border-dark-border flex items-center justify-between">
             <button onclick="openModal('modal-nlp')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-violet hover:text-purple-300 group-hover:translate-x-1 transition-all">
-              <span>Étude de cas détaillée</span>
+              <span data-i18n="btn_case_study">Étude de cas détaillée</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
-            <a href="https://github.com/sejrolabs/nlp-sentiment-analysis" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-dark-borderLight transition-all">
+            <a href="https://github.com/sejrolabs/sentiment-analysis-nlp" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-dark-borderLight transition-all">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span>Code Source</span>
+              <span data-i18n="btn_source_code">Code Source</span>
             </a>
           </div>
         </article>
@@ -544,37 +576,37 @@
           <div class="space-y-5">
             <!-- Header Tags & Metric Badge -->
             <div class="flex items-start justify-between gap-4">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" data-i18n="p4_tag">
                 Systèmes de Recommandation & Filtrage Hybride
               </span>
-              <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-emerald-300 font-semibold border border-slate-700">
+              <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-emerald-300 font-semibold border border-slate-700" data-i18n="p4_metric_pill">
                 NDCG@10 +24%
               </span>
             </div>
 
             <!-- Title -->
-            <h3 class="text-2xl font-bold text-white group-hover:text-accent-emerald transition-colors">
+            <h3 class="text-2xl font-bold text-white group-hover:text-accent-emerald transition-colors" data-i18n="p4_title">
               Système de Recommandation Hybride & Ranking
             </h3>
 
             <!-- Business context & Pitch -->
-            <p class="text-slate-300 text-sm leading-relaxed">
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n-html="p4_desc_html">
               Moteur de recommandation personnalisé combinant <strong>filtrage collaboratif par factorisation matricielle (SVD/ALS)</strong> et filtrage basé sur le contenu. Résolution du problème du <em>cold-start</em> et évaluation offline sur métriques de ranking (NDCG@K, Precision@K).
             </p>
 
             <!-- Key Metric Highlights -->
             <div class="grid grid-cols-3 gap-3 pt-2">
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">NDCG@10</span>
-                <span class="font-mono text-sm font-bold text-emerald-400">0.842</span>
+                <span class="block text-xs text-slate-400" data-i18n="p4_stat1_k">NDCG@10</span>
+                <span class="font-mono text-sm font-bold text-emerald-400" data-i18n="p4_stat1_v">0.842</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Approche</span>
-                <span class="font-mono text-sm font-bold text-white">Hybride SVD + Content</span>
+                <span class="block text-xs text-slate-400" data-i18n="p4_stat2_k">Approche</span>
+                <span class="font-mono text-sm font-bold text-white" data-i18n="p4_stat2_v">Hybride SVD + Content</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400">Cold-Start</span>
-                <span class="font-mono text-sm font-bold text-accent-cyan">Résolu (Content-based)</span>
+                <span class="block text-xs text-slate-400" data-i18n="p4_stat3_k">Cold-Start</span>
+                <span class="font-mono text-sm font-bold text-accent-cyan" data-i18n="p4_stat3_v">Résolu (Content-based)</span>
               </div>
             </div>
 
@@ -591,12 +623,12 @@
           <!-- Bottom Actions -->
           <div class="pt-6 mt-6 border-t border-dark-border flex items-center justify-between">
             <button onclick="openModal('modal-recsys')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-emerald hover:text-emerald-300 group-hover:translate-x-1 transition-all">
-              <span>Étude de cas détaillée</span>
+              <span data-i18n="btn_case_study">Étude de cas détaillée</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
             <a href="https://github.com/sejrolabs/recommender-system" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-dark-borderLight transition-all">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span>Code Source</span>
+              <span data-i18n="btn_source_code">Code Source</span>
             </a>
           </div>
         </article>
@@ -608,13 +640,13 @@
     <section id="competences" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-dark-border">
       
       <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-xs font-mono uppercase tracking-wider">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-xs font-mono uppercase tracking-wider" data-i18n="skills_badge">
           Expertise & Boîte à Outils
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="skills_title">
           Compétences & Stack Technique
         </h2>
-        <p class="text-slate-400 text-base sm:text-lg">
+        <p class="text-slate-400 text-base sm:text-lg" data-i18n="skills_desc">
           Une maîtrise complète de la chaîne de valeur de la donnée : de l'exploration statistique rigoureuse à l'inférence de modèles optimisés.
         </p>
       </div>
@@ -626,13 +658,13 @@
           <div class="w-12 h-12 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-white">Machine & Deep Learning</h3>
+          <h3 class="text-lg font-bold text-white" data-i18n="sk1_title">Machine & Deep Learning</h3>
           <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>XGBoost, Random Forest, LightGBM</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Régression Linéaire, Logistique, Ridge/Lasso</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Computer Vision : CNN, YOLO</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>NLP : Transformers, BERT, Hugging Face</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Systèmes de Recommandation (SVD, ALS)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span><span data-i18n="sk1_item1">XGBoost, Random Forest, LightGBM</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span><span data-i18n="sk1_item2">Régression Linéaire, Logistique, Ridge/Lasso</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span><span data-i18n="sk1_item3">Computer Vision : CNN, YOLO</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span><span data-i18n="sk1_item4">NLP : Transformers, BERT, Hugging Face</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span><span data-i18n="sk1_item5">Systèmes de Recommandation (SVD, ALS)</span></li>
           </ul>
         </div>
 
@@ -641,13 +673,13 @@
           <div class="w-12 h-12 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center text-accent-cyan">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-white">Statistique & Économétrie</h3>
+          <h3 class="text-lg font-bold text-white" data-i18n="sk2_title">Statistique & Économétrie</h3>
           <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>Modèles Séries Temporelles : ARDL, VAR</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>Tests de stationnarité, cointégration, causalité</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>Théorie des sondages & Inférence statistique</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>Analyse multivariée des données (ACP, AFC, MCA)</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>Analyse économétrique des politiques publiques</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span><span data-i18n="sk2_item1">Modèles Séries Temporelles : ARDL, VAR</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span><span data-i18n="sk2_item2">Tests de stationnarité, cointégration, causalité</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span><span data-i18n="sk2_item3">Théorie des sondages & Inférence statistique</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span><span data-i18n="sk2_item4">Analyse multivariée des données (ACP, AFC, MCA)</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span><span data-i18n="sk2_item5">Analyse économétrique des politiques publiques</span></li>
           </ul>
         </div>
 
@@ -656,13 +688,13 @@
           <div class="w-12 h-12 rounded-lg bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-white">Évaluation & Explicabilité</h3>
+          <h3 class="text-lg font-bold text-white" data-i18n="sk3_title">Évaluation & Explicabilité</h3>
           <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span>Interprétabilité SHAP & Feature Importance</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span>Analyse des résidus & Hétéroscédasticité</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span>Classes déséquilibrées : PR-AUC, F1-macro</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span>Calibration du seuil de décision métier</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span>Walk-Forward Temporal Validation</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span><span data-i18n="sk3_item1">Interprétabilité SHAP & Feature Importance</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span><span data-i18n="sk3_item2">Analyse des résidus & Hétéroscédasticité</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span><span data-i18n="sk3_item3">Classes déséquilibrées : PR-AUC, F1-macro</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span><span data-i18n="sk3_item4">Calibration du seuil de décision métier</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span><span data-i18n="sk3_item5">Walk-Forward Temporal Validation</span></li>
           </ul>
         </div>
 
@@ -671,13 +703,13 @@
           <div class="w-12 h-12 rounded-lg bg-accent-violet/10 border border-accent-violet/20 flex items-center justify-center text-accent-violet">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-white">Langages & Écosystème</h3>
+          <h3 class="text-lg font-bold text-white" data-i18n="sk4_title">Langages & Écosystème</h3>
           <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>Python (pandas, numpy, scikit-learn, PyTorch, Streamlit)</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>SQL & Requêtage de bases de données</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>R (dplyr, ggplot2, économétrie avancée, Shiny)</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>Git, GitHub, CI/CD, Notion, VBA</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>GCP, Power BI</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span><span data-i18n="sk4_item1">Python (pandas, numpy, scikit-learn, PyTorch, Streamlit)</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span><span data-i18n="sk4_item2">SQL & Requêtage de bases de données</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span><span data-i18n="sk4_item3">R (dplyr, ggplot2, économétrie avancée, Shiny)</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span><span data-i18n="sk4_item4">Git, GitHub, CI/CD, Notion, VBA</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span><span data-i18n="sk4_item5">GCP, Power BI</span></li>
           </ul>
         </div>
 
@@ -688,13 +720,13 @@
     <section id="parcours" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-dark-border">
       
       <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono uppercase tracking-wider">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono uppercase tracking-wider" data-i18n="timeline_badge">
           Double Formation d'Excellence
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="timeline_title">
           Formations & Expériences Professionnelles
         </h2>
-        <p class="text-slate-400 text-base sm:text-lg">
+        <p class="text-slate-400 text-base sm:text-lg" data-i18n="timeline_desc">
           Un cursus d'ingénieur rigoureux allié à des expériences de recherche appliquée et de modélisation industrielle.
         </p>
       </div>
@@ -704,29 +736,29 @@
         <!-- Timeline Item 1: ENSAI -->
         <div class="relative flex flex-col md:flex-row items-start gap-8 group">
           <div class="md:w-1/2 md:text-right pr-0 md:pr-8 space-y-1 pl-16 md:pl-0">
-            <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20">2024 - 2027</span>
-            <h3 class="text-xl font-bold text-white">Ingénieur Data Scientist</h3>
-            <p class="text-sm font-medium text-slate-400">ENSAI — École Nationale de la Statistique et de l'Analyse de l'Information (Rennes / Bruz)</p>
+            <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20" data-i18n="t1_date">2024 - 2027</span>
+            <h3 class="text-xl font-bold text-white" data-i18n="t1_title">Ingénieur Data Scientist</h3>
+            <p class="text-sm font-medium text-slate-400" data-i18n="t1_school">ENSAI — École Nationale de la Statistique et de l'Analyse de l'Information (Rennes / Bruz)</p>
           </div>
           <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-dark-bg border-4 border-brand-500 group-hover:scale-125 transition-transform z-10"></div>
           <div class="md:w-1/2 pl-16 md:pl-8 text-sm text-slate-300 space-y-2">
-            <p>Formation d'élite en statistique mathématique, Machine Learning, Deep Learning, MLOps, bases de données volumineuses et gestion de projets data complexes.</p>
+            <p data-i18n="t1_desc">Formation d'élite en statistique mathématique, Machine Learning, Deep Learning, MLOps, bases de données volumineuses et gestion de projets data complexes.</p>
           </div>
         </div>
 
         <!-- Timeline Item 2: Stage ECAM -->
         <div class="relative flex flex-col md:flex-row items-start gap-8 group">
           <div class="md:w-1/2 md:text-right pr-0 md:pr-8 space-y-1 pl-16 md:pl-0">
-            <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">Juin 2025 - Août 2025</span>
-            <h3 class="text-xl font-bold text-white">Data Scientist (Stage R&D)</h3>
-            <p class="text-sm font-medium text-slate-400">ECAM Louis de Broglie (Bruz, France)</p>
+            <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20" data-i18n="t2_date">Juin 2025 - Août 2025</span>
+            <h3 class="text-xl font-bold text-white" data-i18n="t2_title">Data Scientist (Stage R&D)</h3>
+            <p class="text-sm font-medium text-slate-400" data-i18n="t2_school">ECAM Louis de Broglie (Bruz, France)</p>
           </div>
           <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-dark-bg border-4 border-accent-cyan group-hover:scale-125 transition-transform z-10"></div>
           <div class="md:w-1/2 pl-16 md:pl-8 text-sm text-slate-300 space-y-2">
             <ul class="list-disc list-inside space-y-1.5 text-slate-300">
-              <li>Développement d'un modèle d'automatisation de détection et comptage de cellules immunitaires sur images microscopiques (CNN & YOLO).</li>
-              <li>Collecte, labellisation et data augmentation sur Roboflow pour maximiser la robustesse face au bruit optique.</li>
-              <li>Optimisation itérative des hyperparamètres sous Python et restitution à l'équipe encadrante.</li>
+              <li data-i18n="t2_li1">Développement d'un modèle d'automatisation de détection et comptage de cellules immunitaires sur images microscopiques (CNN & YOLO).</li>
+              <li data-i18n="t2_li2">Collecte, labellisation et data augmentation sur Roboflow pour maximiser la robustesse face au bruit optique.</li>
+              <li data-i18n="t2_li3">Optimisation itérative des hyperparamètres sous Python et restitution à l'équipe encadrante.</li>
             </ul>
           </div>
         </div>
@@ -734,29 +766,29 @@
         <!-- Timeline Item 3: ENEAM -->
         <div class="relative flex flex-col md:flex-row items-start gap-8 group">
           <div class="md:w-1/2 md:text-right pr-0 md:pr-8 space-y-1 pl-16 md:pl-0">
-            <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-accent-violet/10 text-accent-violet border border-accent-violet/20">2022 - 2025</span>
-            <h3 class="text-xl font-bold text-white">Ingénieur Statisticien Économiste</h3>
-            <p class="text-sm font-medium text-slate-400">ENEAM — École Nationale d'Économie Appliquée et de Management</p>
+            <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-accent-violet/10 text-accent-violet border border-accent-violet/20" data-i18n="t3_date">2022 - 2025</span>
+            <h3 class="text-xl font-bold text-white" data-i18n="t3_title">Ingénieur Statisticien Économiste</h3>
+            <p class="text-sm font-medium text-slate-400" data-i18n="t3_school">ENEAM — École Nationale d'Économie Appliquée et de Management</p>
           </div>
           <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-dark-bg border-4 border-accent-violet group-hover:scale-125 transition-transform z-10"></div>
           <div class="md:w-1/2 pl-16 md:pl-8 text-sm text-slate-300 space-y-2">
-            <p>Fondations mathématiques et méthodologiques approfondies : économétrie des séries temporelles, théorie des probabilités et des sondages, analyse statistique descriptive et inférentielle.</p>
+            <p data-i18n="t3_desc">Fondations mathématiques et méthodologiques approfondies : économétrie des séries temporelles, théorie des probabilités et des sondages, analyse statistique descriptive et inférentielle.</p>
           </div>
         </div>
 
         <!-- Timeline Item 4: Stage INStaD -->
         <div class="relative flex flex-col md:flex-row items-start gap-8 group">
           <div class="md:w-1/2 md:text-right pr-0 md:pr-8 space-y-1 pl-16 md:pl-0">
-            <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Juin 2022 - Septembre 2022</span>
-            <h3 class="text-xl font-bold text-white">Statisticien (Stage)</h3>
-            <p class="text-sm font-medium text-slate-400">INStaD — Institut National de la Statistique et de la Démographie (Cotonou, Bénin)</p>
+            <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" data-i18n="t4_date">Juin 2022 - Septembre 2022</span>
+            <h3 class="text-xl font-bold text-white" data-i18n="t4_title">Statisticien (Stage)</h3>
+            <p class="text-sm font-medium text-slate-400" data-i18n="t4_school">INStaD — Institut National de la Statistique et de la Démographie (Cotonou, Bénin)</p>
           </div>
           <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-dark-bg border-4 border-emerald-500 group-hover:scale-125 transition-transform z-10"></div>
           <div class="md:w-1/2 pl-16 md:pl-8 text-sm text-slate-300 space-y-2">
             <ul class="list-disc list-inside space-y-1.5 text-slate-300">
-              <li>Modélisation économétrique du capital humain et de la croissance à l'aide de modèles ARDL et VAR (données 1980–2020).</li>
-              <li>Tests rigoureux de stationnarité, cointégration et causalité au sens de Granger.</li>
-              <li>Rédaction d'un rapport de synthèse à visée d'aide à la décision publique sous R et Excel.</li>
+              <li data-i18n="t4_li1">Modélisation économétrique du capital humain et de la croissance à l'aide de modèles ARDL et VAR (données 1980–2020).</li>
+              <li data-i18n="t4_li2">Tests rigoureux de stationnarité, cointégration et causalité au sens de Granger.</li>
+              <li data-i18n="t4_li3">Rédaction d'un rapport de synthèse à visée d'aide à la décision publique sous R et Excel.</li>
             </ul>
           </div>
         </div>
@@ -769,20 +801,20 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono uppercase tracking-wider">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono uppercase tracking-wider" data-i18n="about_badge">
             À propos de ma vision
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="about_title">
             Pourquoi mon profil fait la différence ?
           </h2>
           <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <p>
+            <p data-i18n-html="about_p1_html">
               Dans un secteur où beaucoup se contentent de brancher des librairies sans comprendre la mécanique sous-jacente, ma double formation à l'<strong>ENSAI</strong> et à l'<strong>ENEAM</strong> m'a appris à exiger la rigueur mathématique et l'explicabilité à chaque étape du pipeline.
             </p>
-            <p>
+            <p data-i18n-html="about_p2_html">
               Qu'il s'agisse de combattre un <strong>déséquilibre de classes sévère (0,17%)</strong> sans générer de faux positifs ruineux pour l'entreprise, ou d'optimiser le <strong>revenue management</strong> sur plus d'un million de lignes, mon objectif est constant : <strong class="text-white">maximiser l'impact métier réel, mesurer honnêtement la performance et fournir des explications transparentes</strong> grâce aux outils d'interprétabilité comme SHAP.
             </p>
-            <p>
+            <p data-i18n-html="about_p3_html">
               Je suis certifié <strong>Linguaskill (Anglais B2)</strong>, dynamique, autonome et passionné par les problématiques de passage à l'échelle et de mise en production.
             </p>
           </div>
@@ -790,11 +822,11 @@
           <div class="pt-2 flex items-center gap-6 text-sm text-slate-400">
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
-              <span>Français (natif) - Anglais (B2)</span>
+              <span data-i18n="about_languages">Français (natif) - Anglais (B2)</span>
             </div>
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>Lecture, Musculation, Voyage</span>
+              <span data-i18n="about_hobbies">Lecture, Musculation, Voyage</span>
             </div>
           </div>
         </div>
@@ -803,23 +835,23 @@
           <div class="bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-8 space-y-6">
             <h3 class="text-xl font-bold text-white flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-accent-teal"></span>
-              Les 3 piliers de ma démarche
+              <span data-i18n="about_pillars_title">Les 3 piliers de ma démarche</span>
             </h3>
 
             <div class="space-y-4">
               <div class="p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 space-y-1">
-                <span class="font-mono text-xs text-brand-400 font-semibold">01. COMPRÉHENSION MÉTIER AVANT TOUT</span>
-                <p class="text-xs text-slate-300">Traduire un objectif business flou en un problème de modélisation data rigoureux avec une métrique d'optimisation alignée sur le ROI.</p>
+                <span class="font-mono text-xs text-brand-400 font-semibold" data-i18n="about_pil1_k">01. COMPRÉHENSION MÉTIER AVANT TOUT</span>
+                <p class="text-xs text-slate-300" data-i18n="about_pil1_v">Traduire un objectif business flou en un problème de modélisation data rigoureux avec une métrique d'optimisation alignée sur le ROI.</p>
               </div>
 
               <div class="p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 space-y-1">
-                <span class="font-mono text-xs text-accent-cyan font-semibold">02. PROTOCOLE D'ÉVALUATION ÉTANCHE</span>
-                <p class="text-xs text-slate-300">Bannir le data leakage via des séparations temporelles strictes (walk-forward) et des métriques sans complaisance (PR-AUC, F1-macro).</p>
+                <span class="font-mono text-xs text-accent-cyan font-semibold" data-i18n="about_pil2_k">02. PROTOCOLE D'ÉVALUATION ÉTANCHE</span>
+                <p class="text-xs text-slate-300" data-i18n="about_pil2_v">Bannir le data leakage via des séparations temporelles strictes (walk-forward) et des métriques sans complaisance (PR-AUC, F1-macro).</p>
               </div>
 
               <div class="p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 space-y-1">
-                <span class="font-mono text-xs text-accent-violet font-semibold">03. EXPLICABILITÉ & ACCULTURATION DATA</span>
-                <p class="text-xs text-slate-300">Expliquer les prédictions aux décideurs métiers à l'aide de SHAP values pour bâtir la confiance et faciliter l'adoption opérationnelle.</p>
+                <span class="font-mono text-xs text-accent-violet font-semibold" data-i18n="about_pil3_k">03. EXPLICABILITÉ & ACCULTURATION DATA</span>
+                <p class="text-xs text-slate-300" data-i18n="about_pil3_v">Expliquer les prédictions aux décideurs métiers à l'aide de SHAP values pour bâtir la confiance et faciliter l'adoption opérationnelle.</p>
               </div>
             </div>
           </div>
@@ -836,15 +868,15 @@
         <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="relative space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-emerald/10 border border-accent-emerald/30 text-accent-emerald text-xs font-mono uppercase tracking-wider">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-emerald/10 border border-accent-emerald/30 text-accent-emerald text-xs font-mono uppercase tracking-wider" data-i18n="contact_badge">
             Opportunité de Recrutement
           </div>
 
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight" data-i18n="contact_title">
             Prêt à renforcer votre équipe Data ?
           </h2>
 
-          <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n-html="contact_desc_html">
             Je suis activement à la recherche d'un <strong>stage de fin d'études de 6 mois à partir de janvier 2027</strong> en Data Science / Machine Learning / MLOps en Île-de-France ou en télétravail.
           </p>
 
@@ -857,10 +889,10 @@
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               </div>
               <div class="text-center">
-                <span class="block text-xs text-slate-400 font-medium">Email Direct</span>
+                <span class="block text-xs text-slate-400 font-medium" data-i18n="contact_email_title">Email Direct</span>
                 <span class="block font-mono text-xs text-slate-200 mt-0.5 truncate max-w-[180px]">sejro.boco.labs@gmail.com</span>
               </div>
-              <button onclick="copyEmail()" id="copyEmailBtn" class="w-full py-1.5 px-3 rounded text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-brand-400 border border-slate-700 transition-all">
+              <button onclick="copyEmail()" id="copyEmailBtn" class="w-full py-1.5 px-3 rounded text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-brand-400 border border-slate-700 transition-all" data-i18n="contact_btn_copy">
                 Copier l'adresse
               </button>
             </div>
@@ -871,10 +903,10 @@
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               </div>
               <div class="text-center">
-                <span class="block text-xs text-slate-400 font-medium">LinkedIn</span>
+                <span class="block text-xs text-slate-400 font-medium" data-i18n="contact_linkedin_title">LinkedIn</span>
                 <span class="block font-mono text-xs text-slate-200 mt-0.5">toussaint-sejro-boco</span>
               </div>
-              <span class="w-full py-1.5 px-3 rounded text-xs font-semibold bg-slate-800 group-hover:bg-sky-600 group-hover:text-white text-sky-400 border border-slate-700 transition-all">
+              <span class="w-full py-1.5 px-3 rounded text-xs font-semibold bg-slate-800 group-hover:bg-sky-600 group-hover:text-white text-sky-400 border border-slate-700 transition-all" data-i18n="contact_btn_linkedin">
                 Voir le profil
               </span>
             </a>
@@ -885,10 +917,10 @@
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               </div>
               <div class="text-center">
-                <span class="block text-xs text-slate-400 font-medium">Téléphone</span>
+                <span class="block text-xs text-slate-400 font-medium" data-i18n="contact_phone_title">Téléphone</span>
                 <span class="block font-mono text-xs text-slate-200 mt-0.5">+33 7 59 94 48 89</span>
               </div>
-              <span class="w-full py-1.5 px-3 rounded text-xs font-semibold bg-slate-800 group-hover:bg-emerald-600 group-hover:text-white text-emerald-400 border border-slate-700 transition-all">
+              <span class="w-full py-1.5 px-3 rounded text-xs font-semibold bg-slate-800 group-hover:bg-emerald-600 group-hover:text-white text-emerald-400 border border-slate-700 transition-all" data-i18n="contact_btn_phone">
                 Appeler directement
               </span>
             </a>
@@ -899,7 +931,7 @@
           <div class="pt-6">
             <a href="cv.pdf" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-brand-600 via-brand-500 to-accent-cyan hover:from-brand-500 hover:to-accent-cyan shadow-xl shadow-brand-500/30 hover:shadow-brand-500/50 transform hover:-translate-y-0.5 transition-all">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              Télécharger mon CV au format PDF
+              <span data-i18n="contact_btn_cv">Télécharger mon CV au format PDF</span>
             </a>
           </div>
 
@@ -913,7 +945,7 @@
   <!-- FOOTER -->
   <footer class="relative border-t border-dark-border py-8 text-center text-xs text-slate-500 font-mono">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
+      <div data-i18n="footer_text">
         © 2026 Toussaint BOCO — ENSAI Data Scientist. Conçu pour maximiser l'impact technique.
       </div>
       <div class="flex items-center gap-4 text-slate-400">
@@ -921,7 +953,7 @@
         <span>•</span>
         <a href="https://linkedin.com/in/toussaint-sejro-boco" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
         <span>•</span>
-        <a href="mailto:sejroboco9@gmail.com" class="hover:text-white transition-colors">Email</a>
+        <a href="mailto:sejro.boco.labs@gmail.com" class="hover:text-white transition-colors">Email</a>
       </div>
     </div>
   </footer>
@@ -942,14 +974,14 @@
       <!-- Modal Header -->
       <div class="space-y-2 border-b border-dark-border pb-4">
         <div class="flex items-center gap-2">
-          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20">Étude de Cas • ENSAI 2026</span>
-          <span class="text-xs font-mono text-slate-400">Projet Entreprise : Odalys Vacances</span>
+          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20" data-i18n="modal1_badge">Étude de Cas • ENSAI 2026</span>
+          <span class="text-xs font-mono text-slate-400" data-i18n="modal1_client">Projet Entreprise : Odalys Vacances</span>
         </div>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="modal1_title">
           Prévision de la Demande & Revenue Management
         </h3>
-        <p class="text-sm text-slate-300">
-          Modélisation avancée du <em>remaining pickup</em> sur un portefeuille de 104 résidences de vacances.
+        <p class="text-sm text-slate-300" data-i18n="modal1_sub">
+          Modélisation avancée du remaining pickup sur un portefeuille de 104 résidences de vacances.
         </p>
       </div>
 
@@ -958,48 +990,44 @@
         
         <!-- S: Situation -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-brand-400">
-            <span class="w-2 h-2 rounded-full bg-brand-400"></span> 1. Contexte & Problématique Métier (Situation)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-brand-400" data-i18n="modal_sec_s">
+            1. Contexte & Problématique Métier (Situation)
           </h4>
-          <p class="leading-relaxed text-slate-300">
-            Odalys Vacances gère un parc hôtelier important nécessitant une anticipation précise du taux d'occupation pour ajuster dynamiquement la grille tarifaire (Yield / Revenue Management). Le jeu de données dépasse le <strong>million de réservations historiques</strong> réparties sur 104 résidences à travers la France, soumises à une forte saisonnalité et à des comportements de réservation hétérogènes.
+          <p class="leading-relaxed text-slate-300" data-i18n="modal1_s">
+            Odalys Vacances gère un parc hôtelier important nécessitant une anticipation précise du taux d'occupation pour ajuster dynamiquement la grille tarifaire (Yield / Revenue Management). Le jeu de données dépasse le million de réservations historiques réparties sur 104 résidences à travers la France, soumises à une forte saisonnalité et à des comportements de réservation hétérogènes.
           </p>
         </div>
 
         <!-- T: Tâche -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan">
-            <span class="w-2 h-2 rounded-full bg-accent-cyan"></span> 2. Objectifs & Enjeux Techniques (Tâche)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan" data-i18n="modal_sec_t">
+            2. Objectifs & Enjeux Techniques (Tâche)
           </h4>
-          <p class="leading-relaxed text-slate-300">
-            Prédire avec précision les réservations futures d'ici la date de séjour (<em>remaining pickup</em>) à différents horizons temporels (D-90, D-60, D-30, D-7). L'enjeu clé était d'éviter tout phénomène de surajustement (overfitting) et de fuite d'information temporelle (*data leakage*), tout en fournissant aux gestionnaires de résidences une explication claire des facteurs influençant la demande.
+          <p class="leading-relaxed text-slate-300" data-i18n="modal1_t">
+            Prédire avec précision les réservations futures d'ici la date de séjour (remaining pickup) à différents horizons temporels (D-90, D-60, D-30, D-7). L'enjeu clé était d'éviter tout phénomène de surajustement (overfitting) et de fuite d'information temporelle (data leakage), tout en fournissant aux gestionnaires de résidences une explication claire des facteurs influençant la demande.
           </p>
         </div>
 
         <!-- A: Action -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-violet">
-            <span class="w-2 h-2 rounded-full bg-accent-violet"></span> 3. Méthodologie & Solution Implémentée (Action)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-violet" data-i18n="modal_sec_a">
+            3. Méthodologie & Solution Implémentée (Action)
           </h4>
           <ul class="list-disc list-inside space-y-1.5 text-slate-300">
-            <li><strong>Feature Engineering temporel & métier :</strong> Dérivation des lead times, indicateurs de vacances scolaires, effets jours fériés, dynamiques de montée en charge passées et tendances tarifaires.</li>
-            <li><strong>Architecture duale XGBoost :</strong>
-              <ul class="pl-6 pt-1 list-circle space-y-1 text-slate-400">
-                <li><em>Modèle Statique :</em> Capture les tendances de fond, la localisation, l'attractivité de la résidence et la saisonnalité annuelle.</li>
-                <li><em>Modèle Dynamique :</em> Ajuste les prévisions au fur et à mesure que les réservations se concrétisent à l'approche de la date d'arrivée.</li>
-              </ul>
-            </li>
-            <li><strong>Validation Walk-Forward :</strong> Découpage rigoureux respectant l'ordre chronologique (TimeSeriesSplit) pour répliquer exactement les conditions réelles d'inférence en production.</li>
-            <li><strong>Interprétabilité XAI avec SHAP :</strong> Calcul des valeurs de Shapley pour identifier la contribution nette de chaque variable (prix, anticipation, zone géographique).</li>
+            <li data-i18n="modal1_a_li1">Feature Engineering temporel & métier : Dérivation des lead times, indicateurs de vacances scolaires, effets jours fériés, dynamiques de montée en charge passées et tendances tarifaires.</li>
+            <li data-i18n="modal1_a_li2">Modèle Statique : Capture les tendances de fond, la localisation, l'attractivité de la résidence et la saisonnalité annuelle.</li>
+            <li data-i18n="modal1_a_li3">Modèle Dynamique : Ajuste les prévisions au fur et à mesure que les réservations se concrétisent à l'approche de la date d'arrivée.</li>
+            <li data-i18n="modal1_a_li4">Validation Walk-Forward : Découpage rigoureux respectant l'ordre chronologique (TimeSeriesSplit) pour répliquer exactement les conditions réelles d'inférence en production.</li>
+            <li data-i18n="modal1_a_li5">Interprétabilité XAI avec SHAP : Calcul des valeurs de Shapley pour identifier la contribution nette de chaque variable (prix, anticipation, zone géographique).</li>
           </ul>
         </div>
 
         <!-- R: Résultat -->
         <div class="space-y-1.5 bg-dark-bg/80 p-4 rounded-xl border border-dark-border">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-emerald">
-            <span class="w-2 h-2 rounded-full bg-accent-emerald"></span> 4. Résultats & Valeur Ajoutée (Résultat)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-emerald" data-i18n="modal_sec_r">
+            4. Résultats & Valeur Ajoutée (Résultat)
           </h4>
-          <p class="leading-relaxed text-slate-300">
+          <p class="leading-relaxed text-slate-300" data-i18n="modal1_r">
             Réduction sensible de l'erreur moyenne de prévision (MAE / RMSE) comparativement aux règles empiriques précédentes. Les explications SHAP ont permis aux directeurs d'exploitation de justifier sereinement des décisions de repositionnement tarifaire et d'optimiser le taux de remplissage final sans dégrader le RevPAR.
           </p>
         </div>
@@ -1012,10 +1040,10 @@
           <span>Stack: Python • XGBoost • SHAP • TimeSeriesSplit • Pandas</span>
         </div>
         <div class="flex items-center gap-3">
-          <a href="https://github.com/sejrolabs/PFE-ENSAI-x-Magora-x-Odalys-Vacances" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-brand-600 hover:bg-brand-500 text-white transition-all">
+          <a href="https://github.com/sejrolabs/PFE-ENSAI-x-Magora-x-Odalys-Vacances" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-brand-600 hover:bg-brand-500 text-white transition-all" data-i18n="modal_code">
             Explorer le Code GitHub
           </a>
-          <button onclick="closeModal('modal-odalys')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">
+          <button onclick="closeModal('modal-odalys')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700" data-i18n="modal_close">
             Fermer
           </button>
         </div>
@@ -1036,13 +1064,13 @@
       <!-- Modal Header -->
       <div class="space-y-2 border-b border-dark-border pb-4">
         <div class="flex items-center gap-2">
-          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Étude de Cas • Machine Learning FinTech</span>
-          <span class="text-xs font-mono text-slate-400">Projet Spécialisé</span>
+          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20" data-i18n="modal2_badge">Étude de Cas • Machine Learning FinTech</span>
+          <span class="text-xs font-mono text-slate-400" data-i18n="modal2_client">Projet Spécialisé</span>
         </div>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="modal2_title">
           Détection de Fraude sur Classes Extrêmement Déséquilibrées
         </h3>
-        <p class="text-sm text-slate-300">
+        <p class="text-sm text-slate-300" data-i18n="modal2_sub">
           Analyse de 285 807 transactions par carte bancaire avec seulement 0,17% de fraudes réelles.
         </p>
       </div>
@@ -1052,40 +1080,40 @@
         
         <!-- S: Situation -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan">
-            <span class="w-2 h-2 rounded-full bg-accent-cyan"></span> 1. Le Défi Métier (Situation)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan" data-i18n="modal_sec_s">
+            1. Le Défi Métier (Situation)
           </h4>
-          <p class="leading-relaxed text-slate-300">
-            En milieu bancaire réel, la fraude est un phénomène rarissime mais dévastateur : sur <strong>285 807 transactions</strong> analysées, seulement <strong>492 sont frauduleuses (0,17 %)</strong>. Un modèle naïf prédisant toujours "non-fraude" obtiendrait 99,83 % d'accuracy tout en laissant passer la totalité des vols financiers.
+          <p class="leading-relaxed text-slate-300" data-i18n="modal2_s">
+            En milieu bancaire réel, la fraude est un phénomène rarissime mais dévastateur : sur 285 807 transactions analysées, seulement 492 sont frauduleuses (0,17 %). Un modèle naïf prédisant toujours "non-fraude" obtiendrait 99,83 % d'accuracy tout en laissant passer la totalité des vols financiers.
           </p>
         </div>
 
         <!-- T: Tâche -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-brand-400">
-            <span class="w-2 h-2 rounded-full bg-brand-400"></span> 2. Objectif d'Arbitrage Économique (Tâche)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-brand-400" data-i18n="modal_sec_t">
+            2. Objectif d'Arbitrage Économique (Tâche)
           </h4>
-          <p class="leading-relaxed text-slate-300">
-            Concevoir un classifieur capable d'atteindre un <strong>rappel très élevé</strong> (capturer les fraudes) tout en maintenant une <strong>précision forte</strong> afin de ne pas paralyser les clients légitimes par des refus de paiement intempestifs. L'objectif était de maximiser l'aire sous la courbe Precision-Recall (<strong>PR-AUC</strong>) plutôt que la ROC-AUC trompeuse dans ce scénario.
+          <p class="leading-relaxed text-slate-300" data-i18n="modal2_t">
+            Concevoir un classifieur capable d'atteindre un rappel très élevé (capturer les fraudes) tout en maintenant une précision forte afin de ne pas paralyser les clients légitimes par des refus de paiement intempestifs. L'objectif était de maximiser l'aire sous la courbe Precision-Recall (PR-AUC) plutôt que la ROC-AUC trompeuse dans ce scénario.
           </p>
         </div>
 
         <!-- A: Action -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-violet">
-            <span class="w-2 h-2 rounded-full bg-accent-violet"></span> 3. Démarche Scientifique & Comparaison d'Algorithmes (Action)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-violet" data-i18n="modal_sec_a">
+            3. Démarche Scientifique & Comparaison d'Algorithmes (Action)
           </h4>
           <ul class="list-disc list-inside space-y-1.5 text-slate-300">
-            <li><strong>Stratégies de rééquilibrage :</strong> Expérimentation rigoureuse de SMOTE (synthèse de minorité), NearMiss (sous-échantillonnage) et pondération de la fonction de perte (<em>Cost-Sensitive Learning</em> via <code class="text-xs font-mono text-slate-200">scale_pos_weight</code> sous XGBoost).</li>
-            <li><strong>Benchmark des modèles :</strong> Comparaison de Random Forest (avec balanced bootstrap) et d'un XGBoost calibré.</li>
-            <li><strong>Tuning du seuil de décision probabiliste :</strong> Déplacement du seuil standard (0.50) vers un seuil optimisé par analyse de la courbe Precision-Recall afin de minimiser le coût financier global (coût d'investigation vs montant moyen dérobé).</li>
+            <li data-i18n="modal2_a_li1">Stratégies de rééquilibrage : Expérimentation rigoureuse de SMOTE (synthèse de minorité), NearMiss (sous-échantillonnage) et pondération de la fonction de perte (Cost-Sensitive Learning via scale_pos_weight sous XGBoost).</li>
+            <li data-i18n="modal2_a_li2">Benchmark des modèles : Comparaison de Random Forest (avec balanced bootstrap) et d'un XGBoost calibré.</li>
+            <li data-i18n="modal2_a_li3">Tuning du seuil de décision probabiliste : Déplacement du seuil standard (0.50) vers un seuil optimisé par analyse de la courbe Precision-Recall afin de minimiser le coût financier global (coût d'investigation vs montant moyen dérobé).</li>
           </ul>
         </div>
 
         <!-- R: Résultat -->
         <div class="space-y-1.5 bg-dark-bg/80 p-4 rounded-xl border border-dark-border">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-emerald">
-            <span class="w-2 h-2 rounded-full bg-accent-emerald"></span> 4. Performances Finales & Impact (Résultat)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-emerald" data-i18n="modal_sec_r">
+            4. Performances Finales & Impact (Résultat)
           </h4>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 py-2 text-center">
             <div class="bg-dark-card p-2 rounded border border-dark-border"><span class="block text-xs text-slate-400">Précision</span><span class="font-mono font-bold text-emerald-400 text-base">87,2%</span></div>
@@ -1093,7 +1121,7 @@
             <div class="bg-dark-card p-2 rounded border border-dark-border"><span class="block text-xs text-slate-400">F1-Score</span><span class="font-mono font-bold text-brand-400 text-base">85,4%</span></div>
             <div class="bg-dark-card p-2 rounded border border-dark-border"><span class="block text-xs text-slate-400">PR-AUC</span><span class="font-mono font-bold text-white text-base">0.868</span></div>
           </div>
-          <p class="text-xs text-slate-300 pt-1">
+          <p class="text-xs text-slate-300 pt-1" data-i18n="modal2_r_p">
             Modèle final hautement sélectif réduisant à un niveau marginal les faux positifs tout en interceptant plus de 8 fraudes sur 10 dès le premier essai.
           </p>
         </div>
@@ -1106,10 +1134,10 @@
           <span>Stack: Python • XGBoost • Scikit-learn • Imbalanced-learn • PR-AUC</span>
         </div>
         <div class="flex items-center gap-3">
-          <a href="https://github.com/sejrolabs/credit-card-fraud-detection" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-accent-cyan hover:bg-cyan-500 text-slate-950 font-bold transition-all">
+          <a href="https://github.com/sejrolabs/credit-card-fraud-detection" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-accent-cyan hover:bg-cyan-500 text-slate-950 font-bold transition-all" data-i18n="modal_code">
             Explorer le Code GitHub
           </a>
-          <button onclick="closeModal('modal-fraude')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">
+          <button onclick="closeModal('modal-fraude')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700" data-i18n="modal_close">
             Fermer
           </button>
         </div>
@@ -1130,13 +1158,13 @@
       <!-- Modal Header -->
       <div class="space-y-2 border-b border-dark-border pb-4">
         <div class="flex items-center gap-2">
-          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-violet-500/10 text-violet-400 border border-violet-500/20">Étude de Cas • Deep Learning & NLP</span>
-          <span class="text-xs font-mono text-slate-400">Architecture Transformers</span>
+          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-violet-500/10 text-violet-400 border border-violet-500/20" data-i18n="modal3_badge">Étude de Cas • Deep Learning & NLP</span>
+          <span class="text-xs font-mono text-slate-400" data-i18n="modal3_client">Architecture Transformers</span>
         </div>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="modal3_title">
           Analyse de Sentiments & Text Mining par Deep Learning
         </h3>
-        <p class="text-sm text-slate-300">
+        <p class="text-sm text-slate-300" data-i18n="modal3_sub">
           Fine-tuning de modèles BERT/Transformers pour la classification contextuelle des retours textuels.
         </p>
       </div>
@@ -1146,43 +1174,43 @@
         
         <!-- S: Situation -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-violet">
-            <span class="w-2 h-2 rounded-full bg-accent-violet"></span> 1. Problématique Métier (Situation)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-violet" data-i18n="modal_sec_s">
+            1. Problématique Métier (Situation)
           </h4>
-          <p class="leading-relaxed text-slate-300">
+          <p class="leading-relaxed text-slate-300" data-i18n="modal3_s">
             Traiter de volumineux flux de commentaires et d'avis clients non structurés afin de qualifier automatiquement la satisfaction, détecter les insatisfactions critiques et orienter les équipes support en temps réel sans intervention humaine préliminaire.
           </p>
         </div>
 
         <!-- T: Tâche -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-brand-400">
-            <span class="w-2 h-2 rounded-full bg-brand-400"></span> 2. Objectifs Techniques (Tâche)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-brand-400" data-i18n="modal_sec_t">
+            2. Objectifs Techniques (Tâche)
           </h4>
-          <p class="leading-relaxed text-slate-300">
+          <p class="leading-relaxed text-slate-300" data-i18n="modal3_t">
             Dépasser les limites des approches « Sac de mots » (Bag-of-Words / TF-IDF) qui échouent face aux négations doubles, au vocabulaire familier et aux dépendances sémantiques lointaines. Déployer un pipeline d'inférence performant avec un F1-score élevé et une faible latence.
           </p>
         </div>
 
         <!-- A: Action -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan">
-            <span class="w-2 h-2 rounded-full bg-accent-cyan"></span> 3. Pipeline & Fine-Tuning de Transformers (Action)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan" data-i18n="modal_sec_a">
+            3. Pipeline & Fine-Tuning de Transformers (Action)
           </h4>
           <ul class="list-disc list-inside space-y-1.5 text-slate-300">
-            <li><strong>Preprocessing & Tokenization :</strong> Nettoyage adapté (préservation des émoticônes porteuses de sens, gestion de la casse), découpage en sous-mots via WordPiece/Byte-Pair Encoding.</li>
-            <li><strong>Stratégie d'apprentissage par transfert :</strong> Fine-tuning des dernières couches d'un modèle pré-entraîné (BERT-base / RoBERTa) avec learning rate decay linéaire et optimisation AdamW.</li>
-            <li><strong>Benchmark systématique :</strong> Comparaison face à une baseline robuste (TF-IDF n-grams + Linear SVM) pour mesurer le gain effectif apporté par le mécanisme d'auto-attention.</li>
+            <li data-i18n="modal3_a_li1">Preprocessing & Tokenization : Nettoyage adapté (préservation des émoticônes porteuses de sens, gestion de la casse), découpage en sous-mots via WordPiece/Byte-Pair Encoding.</li>
+            <li data-i18n="modal3_a_li2">Stratégie d'apprentissage par transfert : Fine-tuning des dernières couches d'un modèle pré-entraîné (BERT-base / RoBERTa) avec learning rate decay linéaire et optimisation AdamW.</li>
+            <li data-i18n="modal3_a_li3">Benchmark systématique : Comparaison face à une baseline robuste (TF-IDF n-grams + Linear SVM) pour mesurer le gain effectif apporté par le mécanisme d'auto-attention.</li>
           </ul>
         </div>
 
         <!-- R: Résultat -->
         <div class="space-y-1.5 bg-dark-bg/80 p-4 rounded-xl border border-dark-border">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-emerald">
-            <span class="w-2 h-2 rounded-full bg-accent-emerald"></span> 4. Résultats & Valeur Ajoutée (Résultat)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-emerald" data-i18n="modal_sec_r">
+            4. Résultats & Valeur Ajoutée (Résultat)
           </h4>
-          <p class="leading-relaxed text-slate-300">
-            Gain de <strong>+12 points de F1-Score (91,4%)</strong> par rapport à la baseline TF-IDF. L'architecture capture avec succès les subtilités de tonalité et permet une catégorisation automatisée en temps réel avec un temps d'inférence inférieur à 35ms par texte.
+          <p class="leading-relaxed text-slate-300" data-i18n="modal3_r">
+            Gain de +12 points de F1-Score (91,4%) par rapport à la baseline TF-IDF. L'architecture capture avec succès les subtilités de tonalité et permet une catégorisation automatisée en temps réel avec un temps d'inférence inférieur à 35ms par texte.
           </p>
         </div>
 
@@ -1194,10 +1222,10 @@
           <span>Stack: Python • PyTorch • Hugging Face • BERT • Scikit-learn</span>
         </div>
         <div class="flex items-center gap-3">
-          <a href="https://github.com/sejrolabs/sentiment-analysis-nlp" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-accent-violet hover:bg-violet-600 text-white transition-all">
+          <a href="https://github.com/sejrolabs/sentiment-analysis-nlp" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-accent-violet hover:bg-violet-600 text-white transition-all" data-i18n="modal_code">
             Explorer le Code GitHub
           </a>
-          <button onclick="closeModal('modal-nlp')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">
+          <button onclick="closeModal('modal-nlp')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700" data-i18n="modal_close">
             Fermer
           </button>
         </div>
@@ -1218,13 +1246,13 @@
       <!-- Modal Header -->
       <div class="space-y-2 border-b border-dark-border pb-4">
         <div class="flex items-center gap-2">
-          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Étude de Cas • Systèmes de Recommandation</span>
-          <span class="text-xs font-mono text-slate-400">Filtrage Hybride & Ranking</span>
+          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" data-i18n="modal4_badge">Étude de Cas • Systèmes de Recommandation</span>
+          <span class="text-xs font-mono text-slate-400" data-i18n="modal4_client">Filtrage Hybride & Ranking</span>
         </div>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="modal4_title">
           Système de Recommandation Hybride & Ranking Personnalisé
         </h3>
-        <p class="text-sm text-slate-300">
+        <p class="text-sm text-slate-300" data-i18n="modal4_sub">
           Combinaison de factorisation matricielle (SVD/ALS) et de filtrage basé sur le contenu.
         </p>
       </div>
@@ -1234,43 +1262,43 @@
         
         <!-- S: Situation -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-emerald">
-            <span class="w-2 h-2 rounded-full bg-accent-emerald"></span> 1. Problématique & Contexte (Situation)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-emerald" data-i18n="modal_sec_s">
+            1. Problématique & Contexte (Situation)
           </h4>
-          <p class="leading-relaxed text-slate-300">
-            Augmenter l'engagement utilisateur et le taux de conversion sur une plateforme e-commerce / contenu en proposant des recommandations ultra-pertinentes. Deux pièges majeurs : le <strong>cold-start</strong> (manque d'historique pour les nouveaux utilisateurs ou nouveaux items) et l'<strong>enfermement dans une bulle de filtres</strong> répétitive.
+          <p class="leading-relaxed text-slate-300" data-i18n="modal4_s">
+            Augmenter l'engagement utilisateur et le taux de conversion sur une plateforme e-commerce / contenu en proposant des recommandations ultra-pertinentes. Deux pièges majeurs : le cold-start (manque d'historique pour les nouveaux utilisateurs ou nouveaux items) et l'enfermement dans une bulle de filtres répétitive.
           </p>
         </div>
 
         <!-- T: Tâche -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-brand-400">
-            <span class="w-2 h-2 rounded-full bg-brand-400"></span> 2. Objectifs d'Évaluation & Métriques (Tâche)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-brand-400" data-i18n="modal_sec_t">
+            2. Objectifs d'Évaluation & Métriques (Tâche)
           </h4>
-          <p class="leading-relaxed text-slate-300">
-            Concevoir un moteur hybride alliant la puissance du filtrage collaboratif et la résilience du filtrage par le contenu. Évaluer la pertinence selon des métriques de classement (ranking) rigoureuses : <strong>NDCG@K</strong> (Normalized Discounted Cumulative Gain), <strong>Precision@K</strong> et <strong>MAP</strong>.
+          <p class="leading-relaxed text-slate-300" data-i18n="modal4_t">
+            Concevoir un moteur hybride alliant la puissance du filtrage collaboratif et la résilience du filtrage par le contenu. Évaluer la pertinence selon des métriques de classement (ranking) rigoureuses : NDCG@K (Normalized Discounted Cumulative Gain), Precision@K et MAP.
           </p>
         </div>
 
         <!-- A: Action -->
         <div class="space-y-1.5">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan">
-            <span class="w-2 h-2 rounded-full bg-accent-cyan"></span> 3. Architecture & Algorithmes (Action)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan" data-i18n="modal_sec_a">
+            3. Architecture & Algorithmes (Action)
           </h4>
           <ul class="list-disc list-inside space-y-1.5 text-slate-300">
-            <li><strong>Filtrage Collaboratif par SVD :</strong> Décomposition en valeurs singulières de la matrice d'interactions utilisateur-item pour capturer les facteurs latents de préférence.</li>
-            <li><strong>Filtrage basé sur le contenu (Content-Based) :</strong> Représentation vectorielle des attributs produits (similarité cosinus) pour fournir immédiatement des recommandations de qualité aux profils sans historique (Cold-Start résolu).</li>
-            <li><strong>Agrégation et Re-ranking :</strong> Scoring pondéré dynamique arbitrant entre nouveauté, popularité et affinité individuelle.</li>
+            <li data-i18n="modal4_a_li1">Filtrage Collaboratif par SVD : Décomposition en valeurs singulières de la matrice d'interactions utilisateur-item pour capturer les facteurs latents de préférence.</li>
+            <li data-i18n="modal4_a_li2">Filtrage basé sur le contenu (Content-Based) : Représentation vectorielle des attributs produits (similarité cosinus) pour fournir immédiatement des recommandations de qualité aux profils sans historique (Cold-Start résolu).</li>
+            <li data-i18n="modal4_a_li3">Agrégation et Re-ranking : Scoring pondéré dynamique arbitrant entre nouveauté, popularité et affinité individuelle.</li>
           </ul>
         </div>
 
         <!-- R: Résultat -->
         <div class="space-y-1.5 bg-dark-bg/80 p-4 rounded-xl border border-dark-border">
-          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-teal">
-            <span class="w-2 h-2 rounded-full bg-accent-teal"></span> 4. Résultats & Performance (Résultat)
+          <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-teal" data-i18n="modal_sec_r">
+            4. Résultats & Performance (Résultat)
           </h4>
-          <p class="leading-relaxed text-slate-300">
-            Amélioration de <strong>+24% du NDCG@10</strong> comparé à une heuristique de recommandation populaire. Excellente résilience sur les nouveaux items tout en garantissant un catalogue diversifié aux utilisateurs fidèles.
+          <p class="leading-relaxed text-slate-300" data-i18n="modal4_r">
+            Amélioration de +24% du NDCG@10 comparé à une heuristique de recommandation populaire. Excellente résilience sur les nouveaux items tout en garantissant un catalogue diversifié aux utilisateurs fidèles.
           </p>
         </div>
 
@@ -1282,10 +1310,10 @@
           <span>Stack: Python • SVD Matrix Factorization • Cosine Similarity • NDCG@K</span>
         </div>
         <div class="flex items-center gap-3">
-          <a href="https://github.com/sejrolabs/recommender-system" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-all">
+          <a href="https://github.com/sejrolabs/recommender-system" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-all" data-i18n="modal_code">
             Explorer le Code GitHub
           </a>
-          <button onclick="closeModal('modal-recsys')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">
+          <button onclick="closeModal('modal-recsys')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700" data-i18n="modal_close">
             Fermer
           </button>
         </div>
@@ -1294,7 +1322,8 @@
     </div>
   </div>
 
-  <!-- JavaScript File -->
+  <!-- Internationalization & Main Scripts -->
+  <script src="translations.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

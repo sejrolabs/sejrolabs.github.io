@@ -1,7 +1,104 @@
 /**
  * Toussaint BOCO - Data Scientist Portfolio
- * Interactive client-side script
+ * Interactive client-side script with Bilingual (FR / EN) Internationalization
  */
+
+// Helper to safely retrieve the translations dictionary
+function getTranslations() {
+  if (typeof window !== 'undefined' && window.translations) return window.translations;
+  if (typeof translations !== 'undefined') return translations;
+  return null;
+}
+
+// Current Language State (Default: 'fr', safely read from localStorage)
+let currentLang = 'fr';
+try {
+  const saved = localStorage.getItem('portfolio_lang');
+  if (saved === 'fr' || saved === 'en') {
+    currentLang = saved;
+  }
+} catch (e) {
+  currentLang = 'fr';
+}
+
+/**
+ * Switch Application Language (FR / EN)
+ * Updates all texts, titles, meta tags, and toggles active button states.
+ */
+function switchLanguage(lang) {
+  const allT = getTranslations();
+  if (!allT || !allT[lang]) {
+    console.warn(`Translations for language '${lang}' not found.`);
+    return;
+  }
+
+  currentLang = lang;
+  try {
+    localStorage.setItem('portfolio_lang', lang);
+  } catch (e) {}
+  document.documentElement.lang = lang;
+
+  const t = allT[lang];
+
+  // Update Page Title & Meta Description
+  if (t.meta_title) document.title = t.meta_title;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && t.meta_desc) metaDesc.setAttribute('content', t.meta_desc);
+
+  // Update Text Content (Plain Text)
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      el.textContent = t[key];
+    }
+  });
+
+  // Update HTML Content (Formatted Text with bold / badges / spans)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[key] !== undefined) {
+      el.innerHTML = t[key];
+    }
+  });
+
+  // Update Language Switcher Buttons Style (Desktop & Mobile)
+  updateLanguageButtons(lang);
+}
+
+// Expose globally so inline onclick always reaches it
+window.switchLanguage = switchLanguage;
+
+/**
+ * Updates UI styling for all FR / EN language toggle pills
+ */
+function updateLanguageButtons(lang) {
+  const activeClasses = ['bg-brand-600', 'text-white', 'shadow-sm'];
+  const inactiveClasses = ['text-slate-400', 'hover:text-white'];
+
+  const buttonPairs = [
+    ['langBtnFR', 'langBtnEN'],
+    ['mobileLangFR', 'mobileLangEN'],
+    ['mobileTopLangFR', 'mobileTopLangEN']
+  ];
+
+  buttonPairs.forEach(([idFR, idEN]) => {
+    const btnFR = document.getElementById(idFR);
+    const btnEN = document.getElementById(idEN);
+    if (btnFR && btnEN) {
+      if (lang === 'fr') {
+        btnFR.classList.add(...activeClasses);
+        btnFR.classList.remove(...inactiveClasses);
+        btnEN.classList.remove(...activeClasses);
+        btnEN.classList.add(...inactiveClasses);
+      } else {
+        btnEN.classList.add(...activeClasses);
+        btnEN.classList.remove(...inactiveClasses);
+        btnFR.classList.remove(...activeClasses);
+        btnFR.classList.add(...inactiveClasses);
+      }
+    }
+  });
+}
 
 // Mobile navigation toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -35,7 +132,7 @@ function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.remove('hidden');
-    document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+    document.body.classList.add('overflow-hidden');
     const content = modal.querySelector('div');
     if (content) {
       content.classList.add('modal-enter');
@@ -78,12 +175,13 @@ function copyEmail() {
     const btn = document.getElementById('copyEmailBtn');
     if (btn) {
       const originalText = btn.textContent;
-      btn.textContent = '✓ Copié !';
+      const t = window.translations ? window.translations[currentLang] : null;
+      btn.textContent = (t && t.contact_copied) ? t.contact_copied : '✓ Copié !';
       btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-500');
       btn.classList.remove('text-brand-400');
       
       setTimeout(() => {
-        btn.textContent = originalText;
+        btn.textContent = (t && t.contact_btn_copy) ? t.contact_btn_copy : originalText;
         btn.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-500');
         btn.classList.add('text-brand-400');
       }, 2500);
@@ -121,3 +219,11 @@ function handlePhotoError(imgElement) {
   }
 }
 
+// Initialize Language on Page Load (Safe for fast or cached loads)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    switchLanguage(currentLang);
+  });
+} else {
+  switchLanguage(currentLang);
+}

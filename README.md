@@ -25,6 +25,7 @@ Ce portfolio web moderne et responsive a été conçu sur-mesure pour mettre en 
 
 ## 🚀 Fonctionnalités du Portfolio
 
+* **Bilingue Français / Anglais (FR / EN)** : Sélecteur de langue interactif dans la barre de navigation et sur mobile, permettant de basculer instantanément l'intégralité du site (textes, métriques, modales STAR, CV) avec mémorisation du choix utilisateur.
 * **Thème Sombre Premium ("Data & AI Dark Mode")** : Palette de couleurs moderne (bleu néon, cyan, émeraude, violet) avec micro-animations et design épuré inspiré des standards Vercel / Linear.
 * **Études de Cas Interactives (STAR)** : Chaque projet dispose d'une modale *Deep Dive* détaillée reprenant la Situation, la Tâche, l'Action et le Résultat chiffré.
 * **Bouton Copie d'Email** : Copie instantanée dans le presse-papier avec confirmation visuelle animée.
@@ -37,12 +38,14 @@ Ce portfolio web moderne et responsive a été conçu sur-mesure pour mettre en 
 
 ```text
 Portfolio/
-├── index.html       # Page principale complète avec les 4 projets et les modales STAR
-├── styles.css       # Styles personnalisés, scrollbars et effets de glow
-├── app.js           # Gestion des interactions, modales, fallback photo (.jpeg/.jpg/.png) et copie d'email
-├── photo.jpeg       # Votre photo de profil (format portrait / carré) à déposer ici
-├── cv.pdf           # Votre fichier de CV au format PDF à déposer ici
-└── README.md        # Documentation du projet
+├── index.html            # Page principale bilingue avec sélecteur FR/EN et modales STAR
+├── translations.js       # Dictionnaire complet des traductions Français / Anglais
+├── styles.css            # Styles personnalisés, scrollbars et effets de glow
+├── app.js                # Logique i18n, gestion des modales, photo et copie d'email
+├── banniere_linkedin.html # Générateur interactif de bannière LinkedIn officielle (1584x396)
+├── photo.jpeg            # Votre photo de profil (format portrait / carré)
+├── cv.pdf                # Votre fichier de CV au format PDF
+└── README.md             # Documentation du projet
 ```
 
 ---
