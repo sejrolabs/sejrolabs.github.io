@@ -177,7 +177,7 @@ window.translations = {
     about_p2_html: "Qu'il s'agisse de combattre un <strong>déséquilibre de classes sévère (0,17%)</strong> sans générer de faux positifs ruineux pour l'entreprise, ou d'optimiser le <strong>revenue management</strong> sur plus d'un million de lignes, mon objectif est constant : <strong class=\"text-white\">maximiser l'impact métier réel, mesurer honnêtement la performance et fournir des explications transparentes</strong> grâce aux outils d'interprétabilité comme SHAP.",
     about_p3_html: "Je suis certifié <strong>Linguaskill (Anglais B2)</strong>, dynamique, autonome et passionné par les problématiques de passage à l'échelle et de mise en production.",
     about_languages: "Français (natif) - Anglais (B2)",
-    about_hobbies: "Lecture, Musculation, Voyage",
+    about_hobbies: "Lecture, Musculation, Course à pied, Voyage",
     about_pillars_title: "Les 3 piliers de ma démarche",
     about_pil1_k: "01. COMPRÉHENSION MÉTIER AVANT TOUT",
     about_pil1_v: "Traduire un objectif business flou en un problème de modélisation data rigoureux avec une métrique d'optimisation alignée sur le ROI.",
@@ -189,7 +189,7 @@ window.translations = {
     // Contact Section
     contact_badge: "Opportunité de Recrutement",
     contact_title: "Prêt à renforcer votre équipe Data ?",
-    contact_desc_html: "Je suis activement à la recherche d'un <strong>stage de fin d'études de 6 mois à partir de janvier 2027</strong> en Data Science / Machine Learning / MLOps en Île-de-France ou en télétravail.",
+    contact_desc_html: "Je suis activement à la recherche d'un <strong>stage de fin d'études de 6 mois à partir de janvier 2027</strong> en Data Science / Machine Learning / MLOps en France ou en télétravail.",
     contact_email_title: "Email Direct",
     contact_btn_copy: "Copier l'adresse",
     contact_copied: "✓ Copié !",
