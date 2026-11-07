@@ -448,7 +448,7 @@ window.translations = {
     // Contact Section
     contact_badge: "Career Opportunity",
     contact_title: "Ready to Strengthen Your Data Team?",
-    contact_desc_html: "I am actively seeking a <strong>6-month final-year internship starting in January 2027</strong> in Data Science / Machine Learning / MLOps in the Paris Region (Île-de-France) or Remote.",
+    contact_desc_html: "I am actively seeking a <strong>6-month final-year internship starting in January 2027</strong> in Data Science / Machine Learning / MLOps in France or Remote.",
     contact_email_title: "Direct Email",
     contact_btn_copy: "Copy Address",
     contact_copied: "✓ Copied!",
