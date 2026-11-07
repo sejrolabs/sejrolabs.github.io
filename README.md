@@ -42,7 +42,6 @@ Portfolio/
 ├── translations.js       # Dictionnaire complet des traductions Français / Anglais
 ├── styles.css            # Styles personnalisés, scrollbars et effets de glow
 ├── app.js                # Logique i18n, gestion des modales, photo et copie d'email
-├── banniere_linkedin.html # Générateur interactif de bannière LinkedIn officielle (1584x396)
 ├── photo.jpeg            # Votre photo de profil (format portrait / carré)
 ├── cv.pdf                # Votre fichier de CV au format PDF
 └── README.md             # Documentation du projet
