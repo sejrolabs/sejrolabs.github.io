@@ -14,9 +14,9 @@ Ce portfolio web moderne et responsive a été conçu sur-mesure pour mettre en 
    * 285 807 transactions avec seulement 0,17% de fraudes réelles.
    * Modélisation *cost-sensitive* sous XGBoost et Random Forest.
    * **87,2% de précision** et **83,7% de rappel** après calibration du seuil probabiliste sur la courbe PR-AUC.
-3. **Analyse de Sentiments & Text Mining (NLP)**
-   * Fine-tuning d'architectures **Transformers (BERT / RoBERTa)** sous PyTorch & Hugging Face.
-   * Traitement des nuances contextuelles et capture des signaux faibles avec un **F1-score de 91,4%**.
+3. **Assistant RAG Hybride & Analytics (Excel Bancaire)**
+   * Architecture hybride sans hallucination combinant **Text-to-SQL déterministe (DuckDB)** et **recherche hybride (Qdrant + BM25 avec fusion RRF)**.
+   * Routage d'intentions LLM avec fallback heuristique de secours (**100% de précision au benchmark 9/9**), validation restrictive AST (`sqlglot`), visualisations automatiques et export CSV sous Streamlit.
 4. **Système de Recommandation Hybride & Ranking**
    * Combinaison de **filtrage collaboratif par factorisation matricielle (SVD/ALS)** et de filtrage basé sur le contenu (*content-based embeddings*).
    * Résolution du problème de *cold-start* et évaluation sur métriques de ranking (**NDCG@10 +24%**).
