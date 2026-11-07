@@ -7,7 +7,7 @@ window.translations = {
   fr: {
     // Meta & Head
     meta_title: "Toussaint BOCO | Data Scientist & Machine Learning Engineer",
-    meta_desc: "Portfolio de Toussaint BOCO, Élève Ingénieur Data Scientist à l'ENSAI. Projets phares en Machine Learning, Détection de fraude, Séries temporelles, NLP et Systèmes de recommandation.",
+    meta_desc: "Portfolio de Toussaint BOCO, Élève Ingénieur Data Scientist à l'ENSAI. Projets phares en Machine Learning, Détection de fraude, Séries temporelles, RAG Hybride & LLM, et Systèmes de recommandation.",
 
     // Header & Navigation
     nav_role: "Élève Ingénieur Data Scientist - ENSAI",
@@ -29,7 +29,7 @@ window.translations = {
     hero_pill_stage: "Stage 6 mois - Janvier 2027",
     hero_title_html: "Transformer des données complexes en <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-accent-cyan to-accent-teal\">décisions d'impact</span>.",
     hero_subtitle_html: "Je suis <strong class=\"text-white font-semibold\">Toussaint BOCO</strong>, Data Scientist avec une double expertise en <strong class=\"text-brand-400 font-semibold\">Machine Learning</strong>, <strong class=\"text-accent-cyan font-semibold\">Statistique Appliquée</strong> et <strong class=\"text-accent-violet font-semibold\">Économétrie</strong>.",
-    hero_desc_html: "De la détection d'anomalies sur classes déséquilibrées à la prévision dynamique sur +1 million de réservations, en passant par le NLP et les systèmes de recommandation : j'allie rigueur mathématique, optimisation d'algorithmes et explicabilité métier (<span class=\"font-mono text-slate-300 text-xs bg-slate-800 px-2 py-0.5 rounded\">SHAP</span>, analyse des résidus).",
+    hero_desc_html: "De la détection d'anomalies sur classes déséquilibrées à la prévision dynamique sur +1 million de réservations, en passant par les architectures RAG hybrides (LLM + SQL) et les systèmes de recommandation : j'allie rigueur mathématique, optimisation d'algorithmes et explicabilité métier (<span class=\"font-mono text-slate-300 text-xs bg-slate-800 px-2 py-0.5 rounded\">SHAP</span>, analyse des résidus).",
     hero_cta_projects: "Explorer mes projets phares",
 
     // Portrait Card
@@ -85,17 +85,17 @@ window.translations = {
     p2_stat3_k: "Transactions",
     p2_stat3_v: "285k",
 
-    // Project 3 : NLP
-    p3_tag: "Natural Language Processing (NLP)",
-    p3_metric_pill: "Transformers & BERT",
-    p3_title: "Analyse de Sentiments & Text Mining (NLP)",
-    p3_desc_html: "Pipeline complet de classification de texte et d'analyse d'opinions. Comparaison de baselines sémantiques (TF-IDF + classifieurs linéaires) avec le fine-tuning de modèles de langage <strong>BERT / RoBERTa</strong> pour la détection fine des tonalités et de la satisfaction client.",
-    p3_stat1_k: "F1-Score",
-    p3_stat1_v: "91,4%",
-    p3_stat2_k: "Architecture",
-    p3_stat2_v: "Fine-tuned BERT",
-    p3_stat3_k: "Latence",
-    p3_stat3_v: "< 35ms / req",
+    // Project 3 : RAG & Analytics
+    p3_tag: "GenAI, RAG Hybride & Text-to-SQL",
+    p3_metric_pill: "100% Précision Routage",
+    p3_title: "Assistant RAG Hybride & Analytics (Excel Bancaire)",
+    p3_desc_html: "Assistant conversationnel analytique combinant <strong>Text-to-SQL déterministe (DuckDB)</strong> et <strong>recherche hybride (Qdrant + BM25 avec RRF)</strong>. Routage d'intentions LLM avec fallback heuristique de secours, validation AST sécurisée et visualisations automatiques sous Streamlit.",
+    p3_stat1_k: "Routage d'Intentions",
+    p3_stat1_v: "100% (9/9)",
+    p3_stat2_k: "Moteur Hybride",
+    p3_stat2_v: "DuckDB + Qdrant + BM25",
+    p3_stat3_k: "Sécurité SQL",
+    p3_stat3_v: "AST Read-Only",
 
     // Project 4 : RecSys
     p4_tag: "Systèmes de Recommandation & Filtrage Hybride",
@@ -117,7 +117,7 @@ window.translations = {
     sk1_item1: "XGBoost, Random Forest, LightGBM",
     sk1_item2: "Régression Linéaire, Logistique, Ridge/Lasso",
     sk1_item3: "Computer Vision : CNN, YOLO",
-    sk1_item4: "NLP : Transformers, BERT, Hugging Face",
+    sk1_item4: "GenAI & RAG : Qdrant, DuckDB, Text-to-SQL, Ollama, Transformers",
     sk1_item5: "Systèmes de Recommandation (SVD, ALS)",
 
     sk2_title: "Statistique & Économétrie",
@@ -236,17 +236,19 @@ window.translations = {
     modal2_a_li3: "Tuning du seuil de décision probabiliste : Déplacement du seuil standard (0.50) vers un seuil optimisé par analyse de la courbe Precision-Recall afin de minimiser le coût financier global (coût d'investigation vs montant moyen dérobé).",
     modal2_r_p: "Modèle final hautement sélectif réduisant à un niveau marginal les faux positifs tout en interceptant plus de 8 fraudes sur 10 dès le premier essai.",
 
-    // Modal NLP
-    modal3_badge: "Étude de Cas • Deep Learning & NLP",
-    modal3_client: "Architecture Transformers",
-    modal3_title: "Analyse de Sentiments & Text Mining par Deep Learning",
-    modal3_sub: "Fine-tuning de modèles BERT/Transformers pour la classification contextuelle des retours textuels.",
-    modal3_s: "Traiter de volumineux flux de commentaires et d'avis clients non structurés afin de qualifier automatiquement la satisfaction, détecter les insatisfactions critiques et orienter les équipes support en temps réel sans intervention humaine préliminaire.",
-    modal3_t: "Dépasser les limites des approches « Sac de mots » (Bag-of-Words / TF-IDF) qui échouent face aux négations doubles, au vocabulaire familier et aux dépendances sémantiques lointaines. Déployer un pipeline d'inférence performant avec un F1-score élevé et une faible latence.",
-    modal3_a_li1: "Preprocessing & Tokenization : Nettoyage adapté (préservation des émoticônes porteuses de sens, gestion de la casse), découpage en sous-mots via WordPiece/Byte-Pair Encoding.",
-    modal3_a_li2: "Stratégie d'apprentissage par transfert : Fine-tuning des dernières couches d'un modèle pré-entraîné (BERT-base / RoBERTa) avec learning rate decay linéaire et optimisation AdamW.",
-    modal3_a_li3: "Benchmark systématique : Comparaison face à une baseline robuste (TF-IDF n-grams + Linear SVM) pour mesurer le gain effectif apporté par le mécanisme d'auto-attention.",
-    modal3_r: "Gain de +12 points de F1-Score (91,4%) par rapport à la baseline TF-IDF. L'architecture capture avec succès les subtilités de tonalité et permet une catégorisation automatisée en temps réel avec un temps d'inférence inférieur à 35ms par texte.",
+    // Modal RAG & Analytics
+    modal3_badge: "Étude de Cas • GenAI & RAG Hybride",
+    modal3_client: "Architecture Analytique & LLM",
+    modal3_title: "Assistant RAG Analytics Hybride pour Fichiers Excel Bancaires",
+    modal3_sub: "Orchestration Text-to-SQL, recherche vectorielle dense et BM25 avec interface Streamlit et API FastAPI.",
+    modal3_s: "Les analystes financiers et métiers manipulent d'importants volumes de transactions bancaires sous Excel et perdent un temps précieux à concevoir manuellement des formules ou requêtes complexes. Un LLM naïf hallucine sur les calculs arithmétiques et ne peut pas ingérer de volumineux tableurs en contexte sans fuite de données ou saturation de tokens.",
+    modal3_t: "Concevoir un système d'analyse sans hallucination capable d'arbitrer intelligemment entre calculs arithmétiques exacts (sommes, moyennes, classements) et exploration sémantique floue (thématiques de dépenses, détection de motifs), tout en garantissant une étanchéité de sécurité absolue contre les injections SQL.",
+    modal3_a_li1: "Pipeline d'ingestion & normalisation : Parsing tolérant Polars 2.0+ (multi-devises €, $, formats de dates multiples, conversion zéro-copie Arrow vers DuckDB).",
+    modal3_a_li2: "Sécurité AST SQL : Validation restrictive par arbre syntaxique (sqlglot), interdiction stricte des fonctions de fuite DuckDB (read_csv, http_get) et exécution en lecture seule.",
+    modal3_a_li3: "Moteur Hybride RRF : Combinaison de recherche vectorielle dense (Qdrant avec multilingual-e5-small) et lexicale (BM25) par Reciprocal Rank Fusion.",
+    modal3_a_li4: "Routage déterministe & Fallback : Prompt few-shot calibré et mécanisme heuristique de secours assurant 100% de succès sur le benchmark d'intentions.",
+    modal3_a_li5: "Visualisations & Exports : Génération automatique de graphiques interactifs (barres/courbes) et export CSV dans Streamlit, doublé d'une API REST FastAPI.",
+    modal3_r: "Score parfait de 100% de précision au benchmark de routage d'intentions (9/9), neutralisation complète de tout risque d'injection SQL malveillante, exécution locale 100% autonome sans dépendance cloud obligatoire (support Ollama/Qwen et OpenAI), et adoption métier immédiate grâce à la visualisation graphique automatisée.",
 
     // Modal RecSys
     modal4_badge: "Étude de Cas • Systèmes de Recommandation",
@@ -264,7 +266,7 @@ window.translations = {
   en: {
     // Meta & Head
     meta_title: "Toussaint BOCO | Data Scientist & Machine Learning Engineer",
-    meta_desc: "Portfolio of Toussaint BOCO, Senior Graduate Data Science Engineer at ENSAI. Key projects in Machine Learning, Fraud Detection, Time Series, NLP, and Recommender Systems.",
+    meta_desc: "Portfolio of Toussaint BOCO, Senior Graduate Data Science Engineer at ENSAI. Key projects in Machine Learning, Fraud Detection, Time Series, Hybrid RAG & LLMs, and Recommender Systems.",
 
     // Header & Navigation
     nav_role: "Data Scientist & ML Engineer - ENSAI",
@@ -286,7 +288,7 @@ window.translations = {
     hero_pill_stage: "6-Month Internship - January 2027",
     hero_title_html: "Transforming complex data into <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-accent-cyan to-accent-teal\">high-impact decisions</span>.",
     hero_subtitle_html: "I am <strong class=\"text-white font-semibold\">Toussaint BOCO</strong>, Data Scientist with dual expertise in <strong class=\"text-brand-400 font-semibold\">Machine Learning</strong>, <strong class=\"text-accent-cyan font-semibold\">Applied Statistics</strong>, and <strong class=\"text-accent-violet font-semibold\">Econometrics</strong>.",
-    hero_desc_html: "From real-time anomaly detection on extreme class imbalance to dynamic forecasting across 1M+ booking records, through NLP and recommender systems: I combine mathematical rigor, algorithm optimization, and business explainability (<span class=\"font-mono text-slate-300 text-xs bg-slate-800 px-2 py-0.5 rounded\">SHAP</span>, residual analysis).",
+    hero_desc_html: "From real-time anomaly detection on extreme class imbalance to dynamic forecasting across 1M+ booking records, through hybrid RAG architectures (LLM + SQL) and recommender systems: I combine mathematical rigor, algorithm optimization, and business explainability (<span class=\"font-mono text-slate-300 text-xs bg-slate-800 px-2 py-0.5 rounded\">SHAP</span>, residual analysis).",
     hero_cta_projects: "Explore Flagship Projects",
 
     // Portrait Card
@@ -342,17 +344,17 @@ window.translations = {
     p2_stat3_k: "Transactions",
     p2_stat3_v: "285k",
 
-    // Project 3 : NLP
-    p3_tag: "Natural Language Processing (NLP)",
-    p3_metric_pill: "Transformers & BERT",
-    p3_title: "Sentiment Analysis & Text Mining (NLP)",
-    p3_desc_html: "End-to-end text classification and sentiment mining pipeline. Benchmarked classical baselines (TF-IDF + linear classifiers) against fine-tuned <strong>BERT / RoBERTa</strong> language models to capture subtle semantics and customer satisfaction.",
-    p3_stat1_k: "F1-Score",
-    p3_stat1_v: "91.4%",
-    p3_stat2_k: "Architecture",
-    p3_stat2_v: "Fine-tuned BERT",
-    p3_stat3_k: "Latency",
-    p3_stat3_v: "< 35ms / req",
+    // Project 3 : RAG & Analytics
+    p3_tag: "GenAI, Hybrid RAG & Text-to-SQL",
+    p3_metric_pill: "100% Routing Accuracy",
+    p3_title: "Hybrid RAG & Analytics Assistant (Banking Excel)",
+    p3_desc_html: "Conversational analytics assistant combining <strong>deterministic Text-to-SQL (DuckDB)</strong> and <strong>hybrid retrieval (Qdrant + BM25 with RRF)</strong>. Features LLM intent routing with heuristic fallback, strict AST query validation, and interactive Streamlit charts.",
+    p3_stat1_k: "Intent Routing",
+    p3_stat1_v: "100% (9/9)",
+    p3_stat2_k: "Hybrid Engine",
+    p3_stat2_v: "DuckDB + Qdrant + BM25",
+    p3_stat3_k: "SQL Security",
+    p3_stat3_v: "AST Read-Only",
 
     // Project 4 : RecSys
     p4_tag: "Recommender Systems & Hybrid Filtering",
@@ -374,7 +376,7 @@ window.translations = {
     sk1_item1: "XGBoost, Random Forest, LightGBM",
     sk1_item2: "Linear Regression, Logistic, Ridge/Lasso",
     sk1_item3: "Computer Vision: CNN, YOLO",
-    sk1_item4: "NLP: Transformers, BERT, Hugging Face",
+    sk1_item4: "GenAI & RAG: Qdrant, DuckDB, Text-to-SQL, Ollama, Transformers",
     sk1_item5: "Recommender Systems (SVD, ALS)",
 
     sk2_title: "Statistics & Econometrics",
@@ -493,17 +495,19 @@ window.translations = {
     modal2_a_li3: "Threshold Calibration: Shifted default 0.50 probability threshold to an optimal point on the Precision-Recall curve to minimize expected financial loss (investigation cost vs stolen amount).",
     modal2_r_p: "Highly selective final model reducing false positives to a marginal rate while intercepting over 8 out of 10 frauds on the first attempt.",
 
-    // Modal NLP
-    modal3_badge: "Case Study • Deep Learning & NLP",
-    modal3_client: "Transformers Architecture",
-    modal3_title: "Sentiment Analysis & Text Mining via Deep Learning",
-    modal3_sub: "Fine-tuning BERT/Transformer architectures for contextual customer feedback classification.",
-    modal3_s: "Process high-volume unstructured customer reviews and support tickets to automatically gauge satisfaction, detect critical issues, and triage support routing in real time without human pre-sorting.",
-    modal3_t: "Surpass the limits of Bag-of-Words and TF-IDF models which fail on double negatives, informal vocabulary, and long-range semantic dependencies. Deploy an inference pipeline delivering high macro F1-score and sub-50ms latency.",
-    modal3_a_li1: "Preprocessing & Tokenization: Sentiment-aware text cleaning, preserving meaningful emoticons, sub-word tokenization using WordPiece / Byte-Pair Encoding.",
-    modal3_a_li2: "Transfer Learning Strategy: Fine-tuned the final classification layers of a pre-trained BERT/RoBERTa model with linear learning rate warmup and AdamW optimizer.",
-    modal3_a_li3: "Systematic Benchmarking: Validated against a strong TF-IDF n-gram + Linear SVM baseline to quantify the true gain from multi-head self-attention.",
-    modal3_r: "+12 points improvement in macro F1-score (91.4%) over TF-IDF baseline. Effectively captures subtle context and irony, enabling automated real-time classification with <35ms latency per input.",
+    // Modal RAG & Analytics
+    modal3_badge: "Case Study • GenAI & Hybrid RAG",
+    modal3_client: "Enterprise Analytics & LLM",
+    modal3_title: "Hybrid Analytics RAG Assistant for Banking Excel Files",
+    modal3_sub: "Orchestrating Text-to-SQL, dense vector retrieval, and BM25 with Streamlit UI and FastAPI.",
+    modal3_s: "Financial analysts process large spreadsheets of banking transactions and spend hours crafting manual formulas or queries. Naive LLM chat wrappers hallucinate on exact arithmetic calculations and cannot ingest massive tabular records in-context without token limits and data leakage.",
+    modal3_t: "Architect a zero-hallucination conversational system intelligently routing between deterministic exact queries (sums, averages, rankings) and semantic fuzzy exploration (topic discovery, expense themes), while guaranteeing bulletproof defenses against prompt-to-SQL injection attacks.",
+    modal3_a_li1: "Ingestion & Normalization: Robust Polars 2.0+ pipeline handling multi-currency notations (€, $, £), date variations, and zero-copy Apache Arrow ingestion to DuckDB.",
+    modal3_a_li2: "AST-based SQL Security: Strict abstract syntax tree validation via sqlglot, blocking destructive commands and DuckDB file/network functions (read_csv, http_get) with read-only execution.",
+    modal3_a_li3: "Hybrid RRF Retrieval: Fused dense semantic embeddings (Qdrant with multilingual-e5-small) and lexical BM25 using Reciprocal Rank Fusion.",
+    modal3_a_li4: "Deterministic Routing & Heuristic Fallback: Calibrated few-shot prompt with keyword fallback achieving 100% accuracy on intention benchmarks.",
+    modal3_a_li5: "Interactive Data Viz: Automated dynamic charting (bar/line charts) and one-click CSV export in Streamlit, paired with production FastAPI endpoints.",
+    modal3_r: "Achieved 100% intent routing benchmark accuracy (9/9), completely eliminated SQL injection vulnerabilities, full local privacy support (Ollama/Qwen & OpenAI), and seamless business adoption via instant automated visualizations.",
 
     // Modal RecSys
     modal4_badge: "Case Study • Recommender Systems",

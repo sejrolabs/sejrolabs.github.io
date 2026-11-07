@@ -509,62 +509,64 @@
           </div>
         </article>
 
-        <!-- PROJET 3 : SENTIMENT ANALYSIS (NLP) -->
+        <!-- PROJET 3 : RAG & ANALYTICS -->
         <article class="bg-dark-card border border-dark-border hover:border-accent-violet/50 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-accent-violet/10 group">
           <div class="space-y-5">
             <!-- Header Tags & Metric Badge -->
             <div class="flex items-start justify-between gap-4">
               <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20" data-i18n="p3_tag">
-                Natural Language Processing (NLP)
+                GenAI, RAG Hybride & Text-to-SQL
               </span>
               <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-violet-300 font-semibold border border-slate-700" data-i18n="p3_metric_pill">
-                Transformers & BERT
+                100% Précision Routage
               </span>
             </div>
 
             <!-- Title -->
             <h3 class="text-2xl font-bold text-white group-hover:text-accent-violet transition-colors" data-i18n="p3_title">
-              Analyse de Sentiments & Text Mining (NLP)
+              Assistant RAG Hybride & Analytics (Excel Bancaire)
             </h3>
 
             <!-- Business context & Pitch -->
             <p class="text-slate-300 text-sm leading-relaxed" data-i18n-html="p3_desc_html">
-              Pipeline complet de classification de texte et d'analyse d'opinions. Comparaison de baselines sémantiques (TF-IDF + classifieurs linéaires) avec le fine-tuning de modèles de langage <strong>BERT / RoBERTa</strong> pour la détection fine des tonalités et de la satisfaction client.
+              Assistant conversationnel analytique combinant <strong>Text-to-SQL déterministe (DuckDB)</strong> et <strong>recherche hybride (Qdrant + BM25 avec RRF)</strong>. Routage d'intentions LLM avec fallback heuristique de secours, validation AST sécurisée et visualisations automatiques sous Streamlit.
             </p>
 
             <!-- Key Metric Highlights -->
             <div class="grid grid-cols-3 gap-3 pt-2">
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400" data-i18n="p3_stat1_k">F1-Score</span>
-                <span class="font-mono text-sm font-bold text-accent-violet" data-i18n="p3_stat1_v">91,4%</span>
+                <span class="block text-xs text-slate-400" data-i18n="p3_stat1_k">Routage d'Intentions</span>
+                <span class="font-mono text-sm font-bold text-accent-violet" data-i18n="p3_stat1_v">100% (9/9)</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400" data-i18n="p3_stat2_k">Architecture</span>
-                <span class="font-mono text-sm font-bold text-white" data-i18n="p3_stat2_v">Fine-tuned BERT</span>
+                <span class="block text-xs text-slate-400" data-i18n="p3_stat2_k">Moteur Hybride</span>
+                <span class="font-mono text-sm font-bold text-white" data-i18n="p3_stat2_v">DuckDB + Qdrant</span>
               </div>
               <div class="bg-dark-bg/80 p-2.5 rounded-lg border border-dark-border text-center">
-                <span class="block text-xs text-slate-400" data-i18n="p3_stat3_k">Latence</span>
-                <span class="font-mono text-sm font-bold text-emerald-400" data-i18n="p3_stat3_v">&lt; 35ms / req</span>
+                <span class="block text-xs text-slate-400" data-i18n="p3_stat3_k">Sécurité SQL</span>
+                <span class="font-mono text-sm font-bold text-emerald-400" data-i18n="p3_stat3_v">AST Read-Only</span>
               </div>
             </div>
 
             <!-- Tech Stack Badges -->
             <div class="flex flex-wrap gap-2 pt-2">
               <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">Python</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">PyTorch</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">Hugging Face</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">BERT / Transformers</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">Tokenization</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">DuckDB</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">Qdrant</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">Streamlit</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">FastAPI</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">BM25 & RRF</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60">sqlglot</span>
             </div>
           </div>
 
           <!-- Bottom Actions -->
           <div class="pt-6 mt-6 border-t border-dark-border flex items-center justify-between">
-            <button onclick="openModal('modal-nlp')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-violet hover:text-purple-300 group-hover:translate-x-1 transition-all">
+            <button onclick="openModal('modal-rag')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-violet hover:text-purple-300 group-hover:translate-x-1 transition-all">
               <span data-i18n="btn_case_study">Étude de cas détaillée</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
-            <a href="https://github.com/sejrolabs/sentiment-analysis-nlp" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-dark-borderLight transition-all">
+            <a href="https://github.com/sejrolabs/excel-rag-analytics-assistant" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-dark-borderLight transition-all">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
               <span data-i18n="btn_source_code">Code Source</span>
             </a>
@@ -1146,26 +1148,26 @@
     </div>
   </div>
 
-  <!-- MODAL 3 : SENTIMENT ANALYSIS (NLP) -->
-  <div id="modal-nlp" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+  <!-- MODAL 3 : RAG & ANALYTICS -->
+  <div id="modal-rag" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
     <div class="bg-dark-card border border-dark-border rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8 space-y-6">
       
       <!-- Close Button -->
-      <button onclick="closeModal('modal-nlp')" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700" aria-label="Fermer">
+      <button onclick="closeModal('modal-rag')" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700" aria-label="Fermer">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
       <!-- Modal Header -->
       <div class="space-y-2 border-b border-dark-border pb-4">
         <div class="flex items-center gap-2">
-          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-violet-500/10 text-violet-400 border border-violet-500/20" data-i18n="modal3_badge">Étude de Cas • Deep Learning & NLP</span>
-          <span class="text-xs font-mono text-slate-400" data-i18n="modal3_client">Architecture Transformers</span>
+          <span class="px-3 py-0.5 rounded-full text-xs font-mono bg-violet-500/10 text-violet-400 border border-violet-500/20" data-i18n="modal3_badge">Étude de Cas • GenAI & RAG Hybride</span>
+          <span class="text-xs font-mono text-slate-400" data-i18n="modal3_client">Architecture Analytique & LLM</span>
         </div>
         <h3 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="modal3_title">
-          Analyse de Sentiments & Text Mining par Deep Learning
+          Assistant RAG Analytics Hybride pour Fichiers Excel Bancaires
         </h3>
         <p class="text-sm text-slate-300" data-i18n="modal3_sub">
-          Fine-tuning de modèles BERT/Transformers pour la classification contextuelle des retours textuels.
+          Orchestration Text-to-SQL, recherche vectorielle dense et BM25 avec interface Streamlit et API FastAPI.
         </p>
       </div>
 
@@ -1178,7 +1180,7 @@
             1. Problématique Métier (Situation)
           </h4>
           <p class="leading-relaxed text-slate-300" data-i18n="modal3_s">
-            Traiter de volumineux flux de commentaires et d'avis clients non structurés afin de qualifier automatiquement la satisfaction, détecter les insatisfactions critiques et orienter les équipes support en temps réel sans intervention humaine préliminaire.
+            Les analystes financiers et métiers manipulent d'importants volumes de transactions bancaires sous Excel et perdent un temps précieux à concevoir manuellement des formules ou requêtes complexes. Un LLM naïf hallucine sur les calculs arithmétiques et ne peut pas ingérer de volumineux tableurs en contexte sans fuite de données ou saturation de tokens.
           </p>
         </div>
 
@@ -1188,19 +1190,21 @@
             2. Objectifs Techniques (Tâche)
           </h4>
           <p class="leading-relaxed text-slate-300" data-i18n="modal3_t">
-            Dépasser les limites des approches « Sac de mots » (Bag-of-Words / TF-IDF) qui échouent face aux négations doubles, au vocabulaire familier et aux dépendances sémantiques lointaines. Déployer un pipeline d'inférence performant avec un F1-score élevé et une faible latence.
+            Concevoir un système d'analyse sans hallucination capable d'arbitrer intelligemment entre calculs arithmétiques exacts (sommes, moyennes, classements) et exploration sémantique floue (thématiques de dépenses, détection de motifs), tout en garantissant une étanchéité de sécurité absolue contre les injections SQL.
           </p>
         </div>
 
         <!-- A: Action -->
         <div class="space-y-1.5">
           <h4 class="font-bold text-white flex items-center gap-2 font-mono text-xs uppercase text-accent-cyan" data-i18n="modal_sec_a">
-            3. Pipeline & Fine-Tuning de Transformers (Action)
+            3. Architecture Hybride & Pipeline MLOps (Action)
           </h4>
           <ul class="list-disc list-inside space-y-1.5 text-slate-300">
-            <li data-i18n="modal3_a_li1">Preprocessing & Tokenization : Nettoyage adapté (préservation des émoticônes porteuses de sens, gestion de la casse), découpage en sous-mots via WordPiece/Byte-Pair Encoding.</li>
-            <li data-i18n="modal3_a_li2">Stratégie d'apprentissage par transfert : Fine-tuning des dernières couches d'un modèle pré-entraîné (BERT-base / RoBERTa) avec learning rate decay linéaire et optimisation AdamW.</li>
-            <li data-i18n="modal3_a_li3">Benchmark systématique : Comparaison face à une baseline robuste (TF-IDF n-grams + Linear SVM) pour mesurer le gain effectif apporté par le mécanisme d'auto-attention.</li>
+            <li data-i18n="modal3_a_li1">Pipeline d'ingestion & normalisation : Parsing tolérant Polars 2.0+ (multi-devises €, $, formats de dates multiples, conversion zéro-copie Arrow vers DuckDB).</li>
+            <li data-i18n="modal3_a_li2">Sécurité AST SQL : Validation restrictive par arbre syntaxique (sqlglot), interdiction stricte des fonctions de fuite DuckDB (read_csv, http_get) et exécution en lecture seule.</li>
+            <li data-i18n="modal3_a_li3">Moteur Hybride RRF : Combinaison de recherche vectorielle dense (Qdrant avec multilingual-e5-small) et lexicale (BM25) par Reciprocal Rank Fusion.</li>
+            <li data-i18n="modal3_a_li4">Routage déterministe & Fallback : Prompt few-shot calibré et mécanisme heuristique de secours assurant 100% de succès sur le benchmark d'intentions.</li>
+            <li data-i18n="modal3_a_li5">Visualisations & Exports : Génération automatique de graphiques interactifs (barres/courbes) et export CSV dans Streamlit, doublé d'une API REST FastAPI.</li>
           </ul>
         </div>
 
@@ -1210,7 +1214,7 @@
             4. Résultats & Valeur Ajoutée (Résultat)
           </h4>
           <p class="leading-relaxed text-slate-300" data-i18n="modal3_r">
-            Gain de +12 points de F1-Score (91,4%) par rapport à la baseline TF-IDF. L'architecture capture avec succès les subtilités de tonalité et permet une catégorisation automatisée en temps réel avec un temps d'inférence inférieur à 35ms par texte.
+            Score parfait de 100% de précision au benchmark de routage d'intentions (9/9), neutralisation complète de tout risque d'injection SQL malveillante, exécution locale 100% autonome sans dépendance cloud obligatoire (support Ollama/Qwen et OpenAI), et adoption métier immédiate grâce à la visualisation graphique automatisée.
           </p>
         </div>
 
@@ -1219,13 +1223,13 @@
       <!-- Modal Footer -->
       <div class="pt-4 border-t border-dark-border flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-2 font-mono text-xs text-slate-400">
-          <span>Stack: Python • PyTorch • Hugging Face • BERT • Scikit-learn</span>
+          <span>Stack: Python • DuckDB • Qdrant • Streamlit • FastAPI • Polars • sqlglot • Pytest</span>
         </div>
         <div class="flex items-center gap-3">
-          <a href="https://github.com/sejrolabs/sentiment-analysis-nlp" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-accent-violet hover:bg-violet-600 text-white transition-all" data-i18n="modal_code">
+          <a href="https://github.com/sejrolabs/excel-rag-analytics-assistant" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-accent-violet hover:bg-violet-600 text-white transition-all" data-i18n="modal_code">
             Explorer le Code GitHub
           </a>
-          <button onclick="closeModal('modal-nlp')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700" data-i18n="modal_close">
+          <button onclick="closeModal('modal-rag')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700" data-i18n="modal_close">
             Fermer
           </button>
         </div>
